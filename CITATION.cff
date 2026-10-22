@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "CTCPU and Hunter: The Road So Far"
+authors:
+  - name: "James Augustus"
+    email: "jamesaugustus1313@gmail.com"
+license:
+  - MIT
+  - CC-BY-4.0
+type: software
