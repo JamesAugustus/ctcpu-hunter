@@ -2,6 +2,25 @@
 
 CTCPU is a processor I am designing to work with two representations of a number. It uses ordinary positional notation and a second representation I call shadow. Hunter continues this work.
 
+## Start with colours
+
+A normal processor works with bits: 0 or 1. CTCPU works with a larger smallest unit, the **xbit**: three bits, which means eight values. I show those eight values as eight colours, because three light channels (red, green, blue) can be mixed into eight colours. Each colour has a number and a letter.
+
+| Number | Colour  | Letter | Three bits |
+|--------|---------|--------|------------|
+| 0      | Black   | K      | 000        |
+| 1      | Red     | R      | 001        |
+| 2      | Green   | G      | 010        |
+| 3      | Yellow  | Y      | 011        |
+| 4      | Blue    | B      | 100        |
+| 5      | Magenta | M      | 101        |
+| 6      | Cyan    | C      | 110        |
+| 7      | White   | W      | 111        |
+
+The colours mix like light: red (1) + green (2) = yellow (3), red (1) + blue (4) = magenta (5), green (2) + blue (4) = cyan (6), and red + green + blue = white (7).
+
+A number is a row of these colours. Written in base 8, 137 is 211, so in colours it is G R R. The Mersenne number 31 is 37 in base 8, so it is Y W. The number 127 is 177 in base 8, so it is R W W. This is why the 1, 3, 7 patterns in the journal can be seen as colours.
+
 ## How are numbers stored?
 
 An xbit consists of three bits and represents one octal digit. Eight xbits hold a 24-bit value. Colours are used to visualise these digits.
