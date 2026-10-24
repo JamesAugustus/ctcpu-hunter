@@ -2,6 +2,8 @@
 
 > **No silicon exists.** MHz and watt figures, and hardware cycle estimates, are model values. Archived emulator measurements were not rerun for this package. The runnable code here consists of the mathematical tests below.
 
+**At a glance.** CTCPU is a processor idea I have been working on, which later became Hunter. Its smallest unit is three bits, shown as one of eight colours, and a number can also be kept in a second "shadow" form made of prime exponents. This repository holds my research journal, short pages on the machine and its parts, and 22 tests of the mathematical claims in the journal: 15 hold, 4 are shown false by a counterexample, and 3 cannot be tested here. There is no chip and no measured speed or energy result. Start with the [CTCPU page](CTCPU.md), then read the journal.
+
 This is my research journal about CT-CPU and the ideas that led to Hunter. It follows what I tried, what worked, what failed, and what I later learned was already known. It includes my notes on number representations, Pascal's triangle and Mersenne numbers, along with calculations, sources and personal reflections.
 
 This repository contains the mathematical foundations of the CTCPU/HUNTER work, on number representation and Pascal structures, together with the verification experiments.

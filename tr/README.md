@@ -2,6 +2,8 @@
 
 > **Silikon yok.** MHz ve watt değerleri ile donanıma ilişkin cycle tahminleri model değerleridir. Arşivdeki emülatör ölçümleri bu paket için yeniden çalıştırılmadı. Burada çalıştırılabilen kod, aşağıdaki matematik testleridir.
 
+**Kısaca.** CTCPU, üzerinde çalıştığım ve sonradan Hunter olan bir işlemci fikri. En küçük birimi üç bit, yani sekiz renkten biri. Sayılar ayrıca asal üslerden oluşan ikinci bir "gölge" biçiminde de tutulabiliyor. Bu depoda araştırma günlüğüm, makine ve parçaları üzerine kısa sayfalar ve günlükteki matematiksel iddialara ait 22 test var: 15'i tutuyor, 4'ü bir karşı örnekle yanlış çıkıyor, 3'ü burada test edilemiyor. Elde çip yok, ölçülmüş bir hız ya da enerji sonucu da yok. Önce [CTCPU sayfasına](CTCPU.md) bak, sonra günlüğü oku.
+
 Bu, CT-CPU ve Hunter'a uzanan fikirlerim üzerine tuttuğum araştırma günlüğü. Ne denediğimi, neyin işe yaradığını, neyin tutmadığını ve neyin zaten bilindiğini sonradan öğrendiğimi anlatıyor. Sayı gösterimleri, Pascal üçgeni ve Mersenne sayıları üzerine notlarımın yanında hesaplar, kaynaklar ve kişisel düşüncelerim var.
 
 Bu depo, CTCPU/HUNTER çalışmasının sayı gösterimi ve Pascal yapıları üzerine matematiksel temelini ve doğrulama deneylerini içerir.
