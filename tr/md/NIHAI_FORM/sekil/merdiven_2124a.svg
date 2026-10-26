@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="455" viewBox="0 0 800 455">
+<rect width="100%" height="100%" fill="white"/>
+<text x="20" y="30" font-size="18" text-anchor="start" font-family="Liberation Mono,monospace" fill="black">2124: birinci katın soyulması</text>
+<rect x="20" y="50" width="370" height="175" fill="white" stroke="black" stroke-width="2"/>
+<text x="32" y="75" font-size="16" text-anchor="start" font-family="Liberation Mono,monospace" fill="black">Yükle</text>
+<line x1="20" y1="86" x2="390" y2="86" stroke="black"/>
+<text x="32" y="109" font-size="14" text-anchor="start" font-family="Liberation Mono,monospace" fill="black">v = 2124</text>
+<text x="32" y="132" font-size="14" text-anchor="start" font-family="Liberation Mono,monospace" fill="black">soyulan = 1</text>
+<text x="32" y="155" font-size="14" text-anchor="start" font-family="Liberation Mono,monospace" fill="black">1 x 2124 = 2124</text>
+<rect x="410" y="50" width="370" height="175" fill="white" stroke="black" stroke-width="2"/>
+<text x="422" y="75" font-size="16" text-anchor="start" font-family="Liberation Mono,monospace" fill="black">2 kanalında soy</text>
+<line x1="410" y1="86" x2="780" y2="86" stroke="black"/>
+<text x="422" y="109" font-size="14" text-anchor="start" font-family="Liberation Mono,monospace" fill="black">v = 1062</text>
+<text x="422" y="132" font-size="14" text-anchor="start" font-family="Liberation Mono,monospace" fill="black">soyulan = 2</text>
+<text x="422" y="155" font-size="14" text-anchor="start" font-family="Liberation Mono,monospace" fill="black">2 x 1062 = 2124</text>
+<rect x="20" y="245" width="370" height="175" fill="white" stroke="black" stroke-width="2"/>
+<text x="32" y="270" font-size="16" text-anchor="start" font-family="Liberation Mono,monospace" fill="black">2 kanalında soy</text>
+<line x1="20" y1="281" x2="390" y2="281" stroke="black"/>
+<text x="32" y="304" font-size="14" text-anchor="start" font-family="Liberation Mono,monospace" fill="black">v = 531</text>
+<text x="32" y="327" font-size="14" text-anchor="start" font-family="Liberation Mono,monospace" fill="black">soyulan = 4</text>
+<text x="32" y="350" font-size="14" text-anchor="start" font-family="Liberation Mono,monospace" fill="black">4 x 531 = 2124</text>
+<rect x="410" y="245" width="370" height="175" fill="white" stroke="black" stroke-width="2"/>
+<text x="422" y="270" font-size="16" text-anchor="start" font-family="Liberation Mono,monospace" fill="black">3 kanalında soy</text>
+<line x1="410" y1="281" x2="780" y2="281" stroke="black"/>
+<text x="422" y="304" font-size="14" text-anchor="start" font-family="Liberation Mono,monospace" fill="black">v = 177</text>
+<text x="422" y="327" font-size="14" text-anchor="start" font-family="Liberation Mono,monospace" fill="black">soyulan = 12</text>
+<text x="422" y="350" font-size="14" text-anchor="start" font-family="Liberation Mono,monospace" fill="black">12 x 177 = 2124</text>
+</svg>

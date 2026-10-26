@@ -1,0 +1,23 @@
+T01_d101_family | HOLDS | 40 equalities correct | prime p=3..31, k=0..3
+T02_mersenne_mod8 | HOLDS | correct for 77 exponents | p=3..79
+T03_factor_law | HOLDS | 14 prime factors satisfy the condition | prime p=3..31
+T04_euler_2p_plus1 | HOLDS | 3 suitable q divide M_p; for p=3, q=M_3 | prime p<100, p=3 mod 4, q<M_p
+T05_137_octal_head | HOLDS | 298/298 forms correct | p=3..300
+T06_head_digit_primality | FAILS | M_11=2047=23x89, octal 3777; M_5=31=37_8 prime, head 3 | p=5,11
+T07_pascal_11 | HOLDS | 65 digit checks correct | n=0..4; n=1..30, b=max(Pascal)+1,+2
+T08_threshold_law | HOLDS | 44 base checks correct | n=1..15, threshold and above; n=2..15 one below threshold
+T09_11_base_value | HOLDS | 99 bases and 98 squares correct | b=2..100; squares b=3..100
+T10_square_seal | UNTESTED | LL p=3,5,7,13 final residue 0; M_11: s8^2=1738, final residue 1736; 64^2 mod M_11=2; seal criterion undefined | small p=3,5,7,11,13
+T11_packed_sieve | FAILS | M_41 composite: 13367 | M_41 with k=163; a k<=64 filter misses it | p=41, q=13367, k<=64
+T12_digit_flow | HOLDS | 491520 remainder equalities correct | n=0..32767, p=3..17
+T13_shadow_vector | HOLDS | 4096 vector comparisons correct | a,b=1..64
+T14_quadratic_generator | FAILS | M=3, k=3: computed 42=2x21 | M=3, k=3
+T15_reverse_p_general | FAILS | counterexample 19 -> 91 = 7 x 13 | p=19
+T16_mersenne_infinitude | UNTESTED | no test written | claim that infinitely many Mersenne primes follow from this mechanism
+T17_signature_filter | UNTESTED | historical signature function and fixed set are not included; raw exponent membership is not a signature test | historical claim for exponents #51 and #52
+T18_ladder_step | HOLDS | a_(n+1)=a_n+kom_n matches the middle coefficients | n=0..60, uint64_t
+T19_base_difference | HOLDS | base difference equals the neighbour coefficient | n=1..60, uint64_t
+T20_middle_by_addition | HOLDS | addition from the ends + mirror, rows 0-37 clean; at 38 the middle exceeds N | N=26321361382, B=N+1, n=0..38
+T21_mersenne_row | HOLDS | 2^(p(p+2)) is row p+2 in base 2^p-1; p=5 carries; for p=7..37 row p+2 is the last clean row | p=7..61, uint64_t, 3 prime moduli
+T22_base3_chain | HOLDS | 6156 formula equalities; a(n)=(3^n+1)/2, period 5 mod 121, never divisible by 11; base-3 Wieferich: 11, 1006003 | b=2..10, n<2000, q<2000000
+TOTAL | HOLDS=15 | FAILS=4 | UNTESTED=3 | ERROR=0 | tests=22

@@ -1,33 +1,37 @@
-# CTCPU ve Hunter: Hunter'a Giden Yol
+# CTCPU ve Hunter
 
-> **Silikon yok.** MHz ve watt değerleri ile donanıma ilişkin cycle tahminleri model değerleridir. Arşivdeki emülatör ölçümleri bu paket için yeniden çalıştırılmadı. Burada çalıştırılabilen kod, aşağıdaki matematik testleridir.
+> **Silikon yok.** MHz ve watt değerleri ile donanıma ilişkin cycle tahminleri model değerleridir. Arşivdeki seçili emülatör kaynakları bu paket için yeniden çalıştırıldı. Önceki emülatör ölçümleri tarihsel kayıt olarak kalıyor. Burada çalıştırılabilen kod, 30 arşiv testini ve `TESTLER/NIHAI_EK/` altındaki iki doğrulama programını içeriyor.
 
-**Kısaca.** CTCPU, üzerinde çalıştığım ve sonradan Hunter olan bir işlemci fikri. En küçük birimi üç bit, yani sekiz renkten biri. Sayılar ayrıca asal üslerden oluşan ikinci bir "gölge" biçiminde de tutulabiliyor. Bu depoda araştırma günlüğüm, makine ve parçaları üzerine kısa sayfalar ve günlükteki matematiksel iddialara ait 22 test var: 15'i tutuyor, 4'ü bir karşı örnekle yanlış çıkıyor, 3'ü burada test edilemiyor. Elde çip yok, ölçülmüş bir hız ya da enerji sonucu da yok. Önce [CTCPU sayfasına](CTCPU.md) bak, sonra günlüğü oku.
+CTCPU, üzerinde çalıştığım ve sonradan Hunter olan bir işlemci fikri. Bu işe renkten başladım. En küçük birimi üç bit, yani sekiz renkten biri. Sayılar ayrıca asal üslerden oluşan ikinci bir "gölge" biçiminde de tutulabiliyor. Makine insan gibi hesaplamaya çalışıyor: çarpanına ayırır, sembolü tutar, en sonda açar. Elde çip yok, ölçülmüş bir hız ya da enerji sonucu da yok. Bu, devam eden bir çalışmanın kaydı, bitmiş bir işlemci değil.
 
-Bu, CT-CPU ve Hunter'a uzanan fikirlerim üzerine tuttuğum araştırma günlüğü. Ne denediğimi, neyin işe yaradığını, neyin tutmadığını ve neyin zaten bilindiğini sonradan öğrendiğimi anlatıyor. Sayı gösterimleri, Pascal üçgeni ve Mersenne sayıları üzerine notlarımın yanında hesaplar, kaynaklar ve kişisel düşüncelerim var.
+## Nereden başlamalı
 
-Bu depo, CTCPU/HUNTER çalışmasının sayı gösterimi ve Pascal yapıları üzerine matematiksel temelini ve doğrulama deneylerini içerir.
+| Belge | Ne anlatıyor |
+|---|---|
+| [Çok basit anlatım](pdf/BASIT_ANLATIM.pdf) ([Markdown](BASIT_ANLATIM.md)) | Bütün fikir tek sayfada, sade sözlerle |
+| [Nihai Form](pdf/NIHAI_FORM/CTCPU_NIHAI.pdf) ([Markdown](md/NIHAI_FORM/CTCPU_NIHAI.md)) | Bütün makine tek belgede: hücre, renk kapıları, register, Resolver, çarpma, bölme, karekök, türler, çekirdek ve doğrulama |
+| [CTCPU](md/CTCPU.md) | Makinenin kısa tanımı |
+| [CTCPU parçaları](md/CTCPU_PARCALAR/README.md) | Her parçanın ayrı belgesi |
+| [Resolver](md/CTCPU_PARCALAR/Resolver/Resolver.md) | Sayıyı gölge biçimine çeviren parça, çalışan biçimler |
+| [Resolver deneyleri](md/CTCPU_PARCALAR/Resolver/Deneyler/Deneyler.md) | Denediğim öteki biçimler |
+| [Dişli modeli](md/CTCPU_PARCALAR/Resolver/Cark.md) | Resolver'ın dişlilerle anlatımı |
+| [ISA](md/ISA.md) | Komut kümesi |
+| [PCCPU](pdf/CTCPU_PARCALAR/PCCPU/PCCPU.pdf) ([Markdown](md/CTCPU_PARCALAR/PCCPU/PCCPU.md)) | Hâlâ tasarladığım ayrı denetleyici |
+| [Hunter'a Giden Yol](pdf/YOL.pdf) ([Markdown](md/YOL.md)) | Araştırma günlüğüm, ne denedim, ne tuttu, ne tutmadı |
+| [Testler](../TESTLER/README_TR.md) | Nihai Form'daki iddiaların testleri |
+| [Küçük Mesaj](md/KUCUK_MESAJ.md) | Bunu neden yapıyorum |
+| [Bir Not](md/NOT.md) | Bilgi, ego ve sıra üzerine |
+| [English](../README.md) | Deponun İngilizce girişi |
 
-Bunu neden yapıyorum: [Küçük Mesaj](KUCUK_MESAJ.md).
+Ana metinleri `md/` altında Markdown, `pdf/` içindeki karşılık gelen klasörlerde PDF olarak tutuyorum. Türkçe için `tr/` altında aynı düzeni kullanıyorum. Bağımsız Pascigon şekli yalnız PDF olarak bulunuyor. SVG şekil dosyaları yalnız Markdown ağaçlarında, `TESTLER/` ise iki dil için ortak. Çok basit anlatım deponun kökünde duruyor, PDF'i pdf/ altında.
 
-Bilgi, ego ve sıra üzerine: [Bir Not](NOT.md).
-
-Makinenin tanımı ve parçaları: [CTCPU](CTCPU.md) · [CTCPU parçaları](CTCPU_PARCALAR/README.md) · [Resolver](CTCPU_PARCALAR/Resolver.md).
-
-## Günlüğü oku
-
-- **Türkçe:** [Hunter’a Giden Yol — PDF](YOL.pdf) · [Markdown](YOL.md)
-- **English:** [The Road So Far — PDF](../THE_ROAD_SO_FAR.pdf) · [Markdown](../THE_ROAD_SO_FAR.md)
-
-İki sürüm aynı kayıtları, formülleri ve test sonuçlarını içerir. Günlük kendi ağzımdan anlatılıyor; yeniden anlattığım sohbet notları doğrudan alıntılardan ayrılıyor.
-
-Bu, devam eden bir çalışmanın kaydı; bitmiş bir işlemci değil. Bazı eski deneyler arşiv kayıtlarından anlatılıyor ve bu depodan yeniden çalıştırılamıyor. Buradaki 22 test, belirli matematiksel iddiaları kontrol ediyor.
-
-Mersenne satırı çalışması ayrı [Pascal Mersenne Rows](https://github.com/JamesAugustus/pascal-mersenne-rows) deposunda bulunuyor. Günlükteki Pascigon şekli de ayrıca açılabilir: [Türkçe](Pascigon.pdf) · [İngilizce](../Pascigon.pdf).
+İngilizce günlük [The Road So Far](../pdf/THE_ROAD_SO_FAR.pdf) adıyla ana klasörde duruyor. Mersenne satırı çalışması ayrı [Pascal Mersenne Rows](https://github.com/JamesAugustus/pascal-mersenne-rows) deposunda. Günlükteki Pascigon şekli de ayrıca açılabilir: [Türkçe](pdf/Pascigon.pdf) ve [İngilizce](../pdf/Pascigon.pdf).
 
 ## Testleri çalıştır
 
-C99 derleyicisi bulunan bir bilgisayarda, deponun ana klasöründen şu komutları çalıştır:
+Nihai Form'un dayandığı testler [TESTLER](../TESTLER/README_TR.md) klasöründe. Her testin kendi klasöründe ne yaptığını anlatan Türkçe bir `TEST_TR.md` (İngilizcesi `TEST.md`) ve tek satırlık çalıştırma komutu var.
+
+Günlükteki 22 iddianın testi ayrı bir programdır. C99 derleyicisi bulunan bir bilgisayarda, deponun ana klasöründen şu komutlarla çalışır:
 
 ```sh
 cc -std=c99 -O2 -Wall -Wextra -o journal_tests journal_tests.c -lm
@@ -40,8 +44,18 @@ cc -std=c99 -O2 -Wall -Wextra -o journal_tests journal_tests.c -lm
 HOLDS=15 | FAILS=4 | UNTESTED=3 | ERROR=0 | tests=22
 ```
 
-`HOLDS`, iddianın denenen durumlarda tuttuğunu gösterir. `FAILS`, iddiaya karşı örnek bulunduğu anlamına gelir; test programının bozulduğu anlamına gelmez. `UNTESTED`, bu paketin iddiayı sınayamadığını belirtir. `ERROR`, uygulanmış bir kontrolün beklenen sonucu vermediğini gösterir. Çıkış kodu 0, böyle bir hata oluşmadığı anlamına gelir; günlükteki bütün iddiaları kanıtlamaz.
+`HOLDS`, iddianın denenen durumlarda tuttuğunu gösterir. `FAILS`, iddiaya karşı örnek bulunduğu anlamına gelir, test programının bozulduğu anlamına gelmez. `UNTESTED`, bu paketin iddiayı sınayamadığını belirtir. `ERROR`, uygulanmış bir kontrolün beklenen sonucu vermediğini gösterir. Çıkış kodu 0, böyle bir hata oluşmadığı anlamına gelir. Günlükteki bütün iddiaları kanıtlamaz.
 
 ## Lisans ve atıf
 
-C kodu [MIT](../LICENSE) lisanslıdır. Türkçe ve İngilizce metinler, PDF'ler, şekiller, test çıktısı ve atıf bilgileri, James Augustus'a atıf şartıyla [CC BY 4.0](../LICENSE-CC-BY-4.0.txt) lisanslıdır. Bu lisanslar günlükte kaynak gösterilen üçüncü taraf eserleri yeniden lisanslamaz. Atıf bilgileri [CITATION.cff](../CITATION.cff) dosyasındadır.
+C ve Python kodu [MIT](../LICENSE) lisanslıdır. Türkçe ve İngilizce metinler, PDF'ler, şekiller, test çıktısı ve atıf bilgileri, James Augustus'a atıf şartıyla [CC BY 4.0](../LICENSE-CC-BY-4.0.txt) lisanslıdır. Bu lisanslar kaynak gösterilen üçüncü taraf eserleri yeniden lisanslamaz. Atıf bilgileri [CITATION.cff](../CITATION.cff) dosyasındadır.
+
+## Bu çalışma hakkında
+
+Bu proje takıntılı bir hobi projesi olarak başladı, sonra bir meraka dönüştü ve şu anda da devam ediyorum. Kendimi geliştirmek ve bakış açımı içimde tutmamak için yapıyorum. Niyetim kendimi gerçek alanda geliştirebilmek, teorinin dışına çıkmak ve araştırmalarıma devam edebilmek.
+
+Python dili benim için hâlâ çok iyi değil. C'de bile iyi değilim, bazen o bile bana yüksek seviye geliyor. Kodlama derslerim devam ediyor. Bilgisayarla ilgili sürekli yeni kitaplar ve yeni teknikler okuyorum. Bu süreçte yapay zekâ araçları tabii ki kullanılmıştır, hem derleme, yazı tipi ve sayfa düzeni için hem de öğrenirken bir mentor gibi. On yıl önce olsaydı büyük ihtimalle Microsoft Word'ün hazır şablonlarını ve WordArt'ı kullanırdım, yazı tipi ve sayfa düzeniyle bu kadar uğraşmazdım. Times New Roman'dan rahat klavye seçimime kadar, bu hayatta yardım aldığım doğrudur. Tek tek elimle yazdığım şeyleri o komik ve karışık halleriyle böyle bir paylaşıma dönüştüremezdim. Fikirler, hesaplar ve deneyler bana ait. Hedefim bu yöntemleri hiçbir programa ihtiyaç duymadan, yalnız bir not defteriyle yürütebilecek hale gelmek.
+
+Çalışmanın çoğunu önce elle yaptım. Tek bir Pisagor üçgeninden karekök yöntemi aradığım yirmi sayfa, elle çapraz yaptığım binom açılımları ve bulduğum boş kağıtlara aldığım notlar evimde duruyor. Görmek isteyen gelip görebilir, ama hepsi epey kötü halde.
+
+Atıf yaptığım kişilere ve adını anamadığım, bu çalışmaya bir şekilde katkısı olan herkese şimdiden teşekkür ederim.
