@@ -99,10 +99,10 @@ limit = 2**24-1
 smooth = len(smooth_set(limit))
 check(smooth == 15748)
 check(limit-smooth == 16761467)
-print('24 bit pozitif alanda smooth:', smooth, 'rough:', limit-smooth)
-print('Rough yüzdesi:', Decimal(limit-smooth)*100/Decimal(limit))
-print('20M çiftte rough×rough yüzdesi:', Decimal(19327807)*100/20000000)
-print('CRT modül çarpımı:', M, '360 ile 510870 aynı kalan vektörünü verir')
+print('Positive 24-bit smooth count:', smooth, 'rough:', limit-smooth)
+print('Rough percentage:', Decimal(limit-smooth)*100/Decimal(limit))
+print('Rough x rough percentage in 20M pairs:', Decimal(19327807)*100/20000000)
+print('CRT modulus product:', M, '360 and 510870 have the same residue vector')
 for x in range(8):
     for y in range(8):
         a={i for i in range(3) if x&(1<<i)}
@@ -113,18 +113,19 @@ for x in range(8):
         check(encode(a^b)==x^y)
         check(encode(set(range(3))-(a&b))==7^(x&y))
         check(encode(set(range(3))-(a|b))==7^(x|y))
+        check(encode(set(range(3))-(a^b))==7^(x^y))
 with localcontext() as ctx:
     ctx.prec=60
     root=Decimal(59).sqrt()
     x=Fraction(0)
-    print('Karekök 59 sürekli kesir yaklaşıkları:')
+    print('Square root of 59: continued fraction convergents:')
     for i in range(1,8):
         x=Fraction(10,14+x)
         value=Decimal(7)+Decimal(x.numerator)/Decimal(x.denominator)
-        print(i, value, 'mutlak hata', abs(value-root))
+        print(i, value, 'absolute error', abs(value-root))
     check(abs(value-root)<Decimal('3.4e-10'))
     # Sonlu yakınsak kesin rasyoneldir, irrasyonel köke eşit değildir.
     check((7+x)**2 != 59)
-print('GECTI, bağımsız eşitlik kontrolü:', checks)
-print('Sabit arşiv tarihi: 25 Ekim 2026')
-print('Süre:', round(time.monotonic()-started,6), 's')
+print('PASS, exact equality checks:', checks)
+print('Colour gates: AND, OR, XOR, NAND, NOR, XNOR; 384 pairs')
+print('Time:', round(time.monotonic()-started,6), 's')

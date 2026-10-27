@@ -60,10 +60,3 @@ Simetrik thread kaydı, iki taraflı RAM alanı, taraf seçimi ve yazma sonrası
 Kodun mevcut yürütme modeli [sade açıklamada](PCCPU_C_TESTI_ACIKLAMA.md), önerilen mimari genişletme ise [PCCPU belgesinde](PCCPU.md) anlatılır.
 
 Adresleme notu: Buradaki C(n,j), test programının klasik binom notasyonudur. CTMemTensor merkez gösteriminde aynı orta katsayı N(9,0) = 126 olur. Adresleme seçenekleri [ayrı belgede](../CTMemTensor/CTMemTensor.md) tanımlanır.
-
-
-## CTMemTensor sayısal gösterimi
-
-CTMemTensor HTML gösteriminde n = 0..16 ve x = 2..255 aralığı üç adresleme kipinde kontrol edildi: merkez çifti, soldan sütun ve iki kat geometrik koordinat. Toplam 12.954 satır, taban ve kip birleşiminde ağırlıklı toplam (x+1)^n ile eşleşti. Katsayılar yalnız toplama ile oluşturulan bağımsız Pascal satırlarıyla karşılaştırıldı. Her sütunun tam bir kez kapsandığı ve tek merkez konumunun iki kez toplanmadığı kontrol edildi.
-
-N(9,0) = 126 ve N(4,-2..+2) = [1,4,6,4,1] örnekleri doğrulandı. On üç geçersiz girdi reddedildi. Bu sonuçlar tarayıcıdaki matematiksel gösterime aittir. C adres çözücüsünü, eşzamanlı thread yürütmesini veya fiziksel RAM protokolünü doğrulamaz.

@@ -402,7 +402,7 @@ $p=13$ ve $M=8191$ için $37634=4\cdot8192+4866$. Katlamadan $4+4866=4870$ çık
 
 #### 4.3.3 Kod, sınama ve farkı
 
-Kaynakta $p=13,31,61,127,521,4096$ için Python sınamaları kayıtlı. Bu altı modülde katlama örneklerini 25 Ekim 2026'da yeniden hesapladım. Sıfır, modülün kendisi ve modülden uzun değerleri doğrudan kalanla karşılaştırdım. Hata çıkmadı. Bu altı modüllü denetimin ayrı kaydı bu pakette bulunmuyor. Paketteki [test ve komut](../../../TESTLER/HUNTER/11_DEX_ARASTIRMALARI/hunter_stream026_9dd5af2c/TEST_TR.md), $p=13,31,61,127,521$ değerlerini kapsıyor.
+Yayımlanan [katlama testi](https://github.com/JamesAugustus/ctcpu-hunter/blob/main/TESTLER/HUNTER/11_DEX_ARASTIRMALARI/hunter_stream026_9dd5af2c/stream026.py), $p=13,31,61,127,521$ değerlerinde akış sonucunu doğrudan kalanla karşılaştırır. Bu testin kapsamı beş modüldür.
 
 Bu biçim yedi küçük asalın üssünü bulmuyor. Tek bir büyük modül için kalanı buluyor. $p=4096$ seçimi de bir asallık iddiası değil. Katlama eşitliği için $p$'nin asal olması gerekmiyor.
 
@@ -685,7 +685,7 @@ Bu işlem iki üs vektörünü doğrudan toplama yapmıyor. Ortak çarpan korunu
 
 3 Temmuz 2026'da sayıyı adres değil yol tarifi olarak tutmayı düşündüm ve $(a+b)(a-b)=a^2-b^2$ yolunu ele aldım. $(5+4)(5-4)=25-16=9$. Çeyrek kare eşitliği de $ab=((a+b)^2-(a-b)^2)/4$. $19\cdot23=(42^2-(-4)^2)/4=437$.
 
-Araştırınca bilinen sonuç olduğunu gördüm. Bunlar bilinen cebirsel özdeşlikler. Gölgesi hazır bir sayının karesinde üsler ikiyle çarpılıyor. Ancak önceki $a+b$ ve $a-b$ işlemleri pozisyonel iş ve yeni ayrışım gerektirebilir. Çeyrek kareyi çalışan rough binom emülatörünün yerine geçirilmiş bir donanım olarak sunmadım. Fikir kaydındaki aday yol olarak tuttum.
+Bunlar bilinen cebirsel özdeşlikler. Gölgesi hazır bir sayının karesinde üsler ikiyle çarpılıyor. Ancak önceki $a+b$ ve $a-b$ işlemleri pozisyonel iş ve yeni ayrışım gerektirebilir. Çeyrek kareyi çalışan rough binom emülatörünün yerine geçirilmiş bir donanım olarak sunmadım. Fikir kaydındaki aday yol olarak tuttum.
 
 #### 5.7.3 Kuvvet ve sapma kaydı
 
@@ -1635,7 +1635,6 @@ Temmuz sözleşmesinde iki davranış vardır. AKIŞ kipi bağımsız işi sürd
 
 Güncel Hunter ayrı DIVZERO biti taşımıyor. Tanımsızlığı değer üzerinde saklama düşüncesiyle bu uyumludur. Yine de karantina çiftinin bağını, kaza sayacını, yaklaşık damgasını ve dış işareti $rtyp$ ile $rpow$ içine hangi hücrelerle yerleştireceğim açık. Temmuz ISA'sının bit yerleşimini 192 bit şemaya yapılmış bir aktarım gibi göstermiyorum.
 
-Kaynak olarak 9 ile 12 Temmuz 2026 tarihli ISA metninin 1 Ekim tarihli metin çıkarımını kullandım. Karantina çifti ve sayaç kaydını bu yayına dahil olmayan tarihsel ISA_layout metninin 207 ile 226 arasındaki satırlarından aldım. İki C sınamasının ham çıktıları 25 Ekim 2026 doğrulamasında saklandı.
 
 ## 12. Çekirdek, yürütme ve ISA
 
@@ -1990,15 +1989,13 @@ Tür çarpım testinin makine yolu ile denetçi yolu bazı normalleştirme yard�
 
 Seçtiğim testlerin her biri test klasöründe kendi açıklaması, kodu ve çalıştırma komutuyla duruyor. Okuyucu aynı komutla kendi makinesinde tekrarlayabilir. Ham çıktıları değiştirmedim, yayındaki sayıları bu çıktılardan aldım.
 
-Koşulardan sonra 70 kaynak dosyasının SHA256 özetini yeniden karşılaştırdım. Fark çıkmadı. Derleyici ve Python sürümünü de bütünlük kaydına yazdım. Bu tarihsel bütünlük kaydı bu pakette bulunmuyor.
 
 Bu koşularda fiziksel FPGA, optik kapı, güç, alan, saat frekansı, çok çekirdekli küp ve güncel ISA'nın bütünleşik yürütmesini sınamadım. Bu başlıklar açık. Önceki metinlerde geçen fakat burada yeniden koşulmayan deneyler kayıtlı ölçüm olarak kalıyor.
 
 ### 14.8 Hücre ve mimari örneklerinin ek denetimi
 
-Hücre, register, taşma, tür, karantina ve komut örnekleri için ayrıca 49 denetim kümesi çalıştırdım. Altı renk kapısının 384 giriş çiftini küme işlemleriyle karşılaştırdım. Boyutları, üs kodlamalarını, merdiven geri kurmalarını, kesin kesirleri ve komut sözcüklerini hesapladım. Karantina ve tanımsız kodlama C programlarını ayrı çıktılarla yeniden çalıştırdım. Bu ek çalıştırmalar 25 Ekim 2026 tarihli. Hata bulmadım. Bunları yukarıdaki 30 çalıştırmanın sayısına ekleyip yeni bir bağımsız kanıt hacmi çıkarmadım. Bu 49 kümeye ait ayrı program ve kayıtlar bu pakette bulunmuyor. Paketteki [örnek testi ve komutu](../../../TESTLER/NIHAI_EK/ornekleri_dogrula/TEST_TR.md), beş renk kapısının 320 giriş çiftini denetliyor.
+Yayımlanan [örnek doğrulayıcı](https://github.com/JamesAugustus/ctcpu-hunter/blob/main/TESTLER/NIHAI_EK/ornekleri_dogrula/ornekleri_dogrula.py) altı renk kapısının 384 sıralı giriş çiftini küme işlemleriyle karşılaştırır. XNOR denetimi eklendiğinde toplam eşitlik denetimi 39.110 olur. Yukarıdaki 25 Ekim kaydı, önceki 39.046 denetimli sürümün tarihsel sonucudur. Yeni kapsam o çalıştırmanın süresine dahil değildir.
 
-Renk kapısı tablolarını ve örnek hesaplarını ayrı bir doğrulama programı üretti. Şekillerin sayısal kutuları bu hesaplardan geliyor. Bu ayrı program bu pakette bulunmuyor.
 
 ## 15. Ne işe yarar?
 

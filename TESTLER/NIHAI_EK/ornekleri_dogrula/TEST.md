@@ -20,3 +20,5 @@ python3 ornekleri_dogrula.py
 ```
 
 Requirements: Python 3.
+
+The six gates AND, OR, XOR, NAND, NOR and XNOR are checked on all 64 ordered pairs each, for 384 gate checks. The complete program performs 39,110 equality checks.

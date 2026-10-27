@@ -10,9 +10,9 @@ This study presents the number representations and arithmetic methods of CTCPU-H
 
 ## Scope and reading order
 
-Part I is the comprehensive Hunter text: cells, registers, Resolver, arithmetic, types, ISA and open decisions. Part II describes PCCPU task control. Part III covers CTMemTensor addressing and memory options. Part IV states the validation scope of the current C example and numerical illustration. Centre-based N(9,0) = 126 and classical C(9,4) = 126 select the same coefficient through different coordinates. The edge-based T notation in PCCPU remains a separate alternative.
+Part I is the comprehensive Hunter text: cells, registers, Resolver, arithmetic, types, ISA and open decisions. Part II describes PCCPU task control. Part III covers CTMemTensor addressing and memory options. Part IV states the validation scope of the current C example. Centre-based N(9,0) = 126 and classical C(9,4) = 126 select the same coefficient through different coordinates. The edge-based T notation in PCCPU remains a separate alternative.
 
-This edition is a technical study authored by James Augustus. The technical content and proofs of its source documents are retained. A common title and reading structure have been added, while repeated document titles, author lines and separate contents tables have been removed. Section numbers and numbered references are local to their respective main parts. The author's narrative is retained in source sections describing the research history.
+Section numbers and numbered references are local to each main part.
 
 Code and tests are included in the accompanying repository archive. Text is CC BY 4.0 and original code is MIT licensed. Third-party dependencies retain their own licenses. Software checks alone do not establish physical hardware, speed or energy advantages.
 
@@ -70,7 +70,6 @@ I built the current Hunter with one core, one thread and eight registers. A regi
 
 A calculation coming out correctly in software does not tell me how many cycles it will take in a circuit. I have no silicon measurement. I keep the old times as measurements in the records. I distinguish the experiments I reran by the date 25 October 2026. I tried the numerical examples with integer and exact fraction arithmetic on the same day.
 
-I started this work with colour. On 18 July 2026 I had written the machine's aim as "a machine that wins through calmness rather than speed". I renamed the machine record from BILINEN.txt to HUNTER.txt on 3 September 2026. Here I describe the same machine from colour to the register, types and core.
 
 ### 2. The cell, light sets and colour gates
 
@@ -389,7 +388,7 @@ In a number made of several chunks, the $w$-bit chunk $i$ has weight $2^{iw}$. I
 
 #### 4.3.3 Code, testing and the difference
 
-The source records Python tests for $p=13,31,61,127,521,4096$. I recalculated the folding examples for these six moduli on 25 October 2026. I compared zero, the modulus itself and values longer than the modulus with the direct remainder. There were no errors. The separate record of this six-modulus check is not included in this package. The packaged [test and command](https://github.com/JamesAugustus/ctcpu-hunter/blob/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/11_DEX_ARASTIRMALARI/hunter_stream026_9dd5af2c/TEST.md) cover $p=13,31,61,127,521$.
+The published [folding test](https://github.com/JamesAugustus/ctcpu-hunter/blob/main/TESTLER/HUNTER/11_DEX_ARASTIRMALARI/hunter_stream026_9dd5af2c/stream026.py) compares streamed folding with direct remainder calculation for $p=13,31,61,127,521$. Its scope is five moduli.
 
 This form does not find the exponents of the seven small primes. It finds the remainder for a single large modulus. The choice $p=4096$ is not a primality claim either. $p$ does not need to be prime for the folding equality.
 
@@ -672,7 +671,7 @@ This operation does not directly perform addition on two exponent vectors. The c
 
 On 3 July 2026 I thought of keeping the number as directions rather than an address and considered the path $(a+b)(a-b)=a^2-b^2$. $(5+4)(5-4)=25-16=9$. The quarter-square equality is $ab=((a+b)^2-(a-b)^2)/4$. $19\cdot23=(42^2-(-4)^2)/4=437$.
 
-When I looked into them, I saw that these were known results. These are known algebraic identities. In the square of a number whose shadow is ready, the exponents are multiplied by two. But the preceding $a+b$ and $a-b$ operations may require positional work and a new decomposition. I did not present the quarter-square as hardware that had replaced the working rough binomial emulator. I kept it as a candidate path in the idea record.
+These are known algebraic identities. In the square of a number whose shadow is ready, the exponents are multiplied by two. But the preceding $a+b$ and $a-b$ operations may require positional work and a new decomposition. I did not present the quarter-square as hardware that had replaced the working rough binomial emulator. I kept it as a candidate path in the idea record.
 
 #### 5.7.3 Power and deviation record
 
@@ -1622,7 +1621,6 @@ The July contract has two behaviours. FLOW mode continues independent work. STOP
 
 The current Hunter does not carry a separate DIVZERO bit. This agrees with the idea of keeping undefinedness on the value. Still, which cells I will use in $rtyp$ and $rpow$ for the quarantine pair's link, accident counter, approximation stamp and external sign remains open. I do not present the July ISA's bit layout as though it has been transferred to the 192-bit scheme.
 
-As a source, I used the 1 October text extraction of the ISA text dated 9 to 12 July 2026. I took the quarantine pair and counter record from lines 207 to 226 of the historical ISA_layout text, which is not included in this publication. The raw outputs of the two C tests were saved in the 25 October 2026 verification.
 
 ### 12. Core, execution and ISA
 
@@ -1847,49 +1845,52 @@ I did not close these open questions as though they were completed decisions. I 
 
 ### 14. Verification
 
+Execution tables use PASS or MEASURED. Journal claims use HOLDS, FAILS or UNTESTED. In the historical Turkish outputs, GECTI means passed, KALDI means the claim failed, and OLCUM means a measurement without a pass threshold. MEASURED and UNTESTED are different statuses.
+
+
 #### 14.1 Run method
 
 I selected 30 runs from the test archive. I used the command in each test's own description. I did not change the compilation option or run arguments. I ran each test in a temporary copy and did not write to the source code. I set a limit of 180 seconds for each run, including compilation. The times are total wall time for compilation and execution, measured in a single run, not a speed comparison.
 
-I did not trust the exit code alone. Some old tests finish with a zero code even after counting errors. I read the error counters in the raw outputs, the acceptance conditions and the scan limits in the source code. GECTI says that the stated acceptance condition was met in the tested range. KALDI says that there is a counterexample to the claim or a violation of the acceptance condition. OLCUM is an experiment with no acceptance threshold or an observation that gives no verdict. I also marked untested cards as open within OLCUM.
+I did not trust the exit code alone. Some old tests finish with a zero code even after counting errors. I read the error counters in the raw outputs, the acceptance conditions and the scan limits in the source code. PASS says that the stated acceptance condition was met in the tested range. FAILS says that there is a counterexample to the claim or a violation of the acceptance condition. MEASURED is an experiment with no acceptance threshold or an observation that gives no verdict. I also marked untested cards as open within MEASURED.
 
-I classified 26 of the 30 runs as GECTI and four as OLCUM. All finished before the time limit. Compilation and execution times totalled 50.420 seconds. The longest run was the flowing counter core and took 11.830 seconds. The four claims marked KALDI in the journal were identified by the program correctly producing counterexamples without errors. I did not accept them on the grounds that the program passed.
+I classified 26 of the 30 runs as PASS and four as MEASURED. All finished before the time limit. Compilation and execution times totalled 50.420 seconds. The longest run was the flowing counter core and took 11.830 seconds. The four claims marked FAILS in the journal were identified by the program correctly producing counterexamples without errors. I did not accept them on the grounds that the program passed.
 
 #### 14.2 Tests rerun
 
 
 | Claim and test | Scope | Result | Time, seconds |
 |---|---|---|---:|
-| Flowing counter, reconstruction and lazy shadow. [hunter_cekirdek](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/01_RESOLVER/hunter_cekirdek) | $1..2^{24}$ reconstruction. Four operations on 100000 pairs. Independent wide-integer checker. Zero errors | GECTI | 11.830 |
-| Flowing counter execution trace. [hunter_iz](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/01_RESOLVER/hunter_iz) | $744=1350_8$ reconstruction matches exactly | GECTI | 0.314 |
-| Horner remainder flow and initial decomposition. [resolver_emulator](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/01_RESOLVER/resolver_emulator) | 24-bit range and seven channels. Decomposition round trip. Zero errors in extra exponent and rough scans | GECTI | 2.066 |
-| Multiplication in the historical N6 ladder. [golge_carpma](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/02_MERDIVEN/golge_carpma) | 8386560 small pairs, 5000000 large pairs. Wide result and small-product limit. Zero errors | GECTI | 6.322 |
-| Historical shadow acceptance. [golge_emulator](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/02_MERDIVEN/golge_emulator) | 23 acceptance checks passed. Zero, multiplication, division, factorial and root | GECTI | 0.214 |
-| Historical N6 round trip and record digest. [golge_nihai](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/02_MERDIVEN/golge_nihai) | $1..16777215$. Zero round-trip errors, numbers that do not fit and identical digests | GECTI | 3.369 |
-| Main shadow implementation. [test_golge_merdiven](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/02_MERDIVEN/test_golge_merdiven) | 24-bit round trip. 8386560 small, 2000000 large products. 999999 overflows and 1000000 divisions. Zero errors | GECTI | 7.424 |
-| Historical N6 scope. [test_tum_sayilar](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/02_MERDIVEN/test_tum_sayilar) | $1..16777215$. Zero round-trip failures and failures to fit. Rough tail included | GECTI | 3.669 |
-| Additive exponent overflow. [kaskad_uctan_uca_test](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/04_CARPMA_BOLME/kaskad_uctan_uca_test) | $e=0..56$ boundary scan. 3000000 products, 2000000 divisions. Overflow above 28. Zero errors | GECTI | 0.815 |
-| Fraction and quarantine v1.4. [kesir_emulator](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/04_CARPMA_BOLME/kesir_emulator) | 25 acceptance checks. Includes 200000 random chains. 25 OK, 0 FAIL | GECTI | 0.164 |
-| No number leakage in quarantine. [kesir_v13_v14_kiyas](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/04_CARPMA_BOLME/kesir_v13_v14_kiyas) | 1000000 clean chains and 1000000 chains with division by zero. Clean value and locked numerator trace correct | GECTI | 0.615 |
-| Multiplication and division with exponent arithmetic. [mul_div_emulator](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/04_CARPMA_BOLME/mul_div_emulator) | 20000000 products, 10000000 exact and 10000000 general divisions. Old limit of 28. Zero errors | GECTI | 3.469 |
-| Multiplication with shifts and addition. [multiply_add](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/04_CARPMA_BOLME/multiply_add) | 65536 byte pairs, 128 wide boundaries, 4000 samples, 26 invalid calls. PASS | GECTI | 0.064 |
-| Concrete examples of multiplication and division. [ornekler](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/04_CARPMA_BOLME/ornekler) | 41 examples passed. Smooth, rough, sign, fraction and simplifying chain | GECTI | 0.114 |
-| Canonical form of octal scale. [pow_tam_tarama](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/04_CARPMA_BOLME/pow_tam_tarama) | Zero value, idempotence and structure errors in 134217728 states | GECTI | 0.264 |
-| Small-operation path in rough multiplication. [rough_fallback_devre_test](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/04_CARPMA_BOLME/rough_fallback_devre_test) | Equal to wide-integer multiplication on 5000000 pairs. Basic small-product operand at most 7 | GECTI | 0.965 |
-| Product coefficient and carry. [test_gate_model](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/04_CARPMA_BOLME/test_gate_model) | Four unittests passed. Byte squares, weighted sum, carry and invalid inputs | GECTI | 0.114 |
-| Fixed-point root approximation. [frac_test](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/05_KAREKOK/frac_test) | 12 root inputs, five products and symbolic simplification. No numerical acceptance threshold | OLCUM | 0.064 |
-| Exact integer square root. [karekok_emulator](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/05_KAREKOK/karekok_emulator) | 3001 perfect squares, 200001 method equalities, 1000001 floor conditions, three wide boundaries. Zero errors | GECTI | 0.114 |
-| Scale inside the root. [kok_virgul_icinde_test](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/05_KAREKOK/kok_virgul_icinde_test) | 134217728 canonical states and 10000000 root products. Six opening examples. Zero errors | GECTI | 0.314 |
-| Relative error of the approximate root. [test_dogruluk](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/05_KAREKOK/test_dogruluk) | $2..16777215$. Error scan of five approximations. No acceptance threshold. The exact root row is not measured | OLCUM | 0.364 |
-| Lock, numerator trace and new load. [karantina_cift_demo](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/06_TIPLER/karantina_cift_demo) | Lock on division by zero, trace accumulation, zero numerator distinction and LOAD clearing. Zero errors | GECTI | 0.032 |
-| Distinguishing approximate zero from undefined. [tanimsiz_kodlama_test](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/06_TIPLER/tanimsiz_kodlama_test) | 6001 small values, 24-bit divisor scan. 4668 collisions in the old code, zero in the new | GECTI | 0.032 |
-| Type and scale canonicity. [tur_pow_tam_tarama](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/06_TIPLER/tur_pow_tam_tarama) | Zero value, idempotence and structure errors in 1073741824 states. Not ISA completeness | GECTI | 4.771 |
-| Type multiplication, inverse and sign. [tur_x_tur_test](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/06_TIPLER/tur_x_tur_test) | 22500 products, 14400 divisions, 150 sign trials. Zero errors. An auxiliary algebraic record is used | GECTI | 0.114 |
-| Journal claims. [journal_tests](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/07_GUNLUK_IDDIALARI/journal_tests) | 22 cards. 15 HOLDS, 4 FAILS, 3 UNTESTED. Zero execution errors. Details below | OLCUM | 0.564 |
-| Rough distribution and operation cost. [hunter_golge_vs_klasik_ad96e0c4](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/09_CPU_ARITMETIGI/hunter_golge_vs_klasik_ad96e0c4) | 24-bit distribution, model operation counts on 200000 pairs. Hardware time and power are not measured | OLCUM | 0.715 |
-| Binary channel folding. [hunter_hunter_channel_fold_bb562e20](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/14_DEX_MATEMATIK_KAPILARI/hunter_hunter_channel_fold_bb562e20) | 393216 remainders, 1681095 folding invariants and five invalid inputs. PASS | GECTI | 0.565 |
-| Mersenne flow folding. [hunter_stream026_9dd5af2c](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/11_DEX_ARASTIRMALARI/hunter_stream026_9dd5af2c) | $p=13,31,61,127,521$. Cells of 3,8,16 bits and 2,3,4,8 rows. Equal to direct mod | GECTI | 0.114 |
-| Error detection by the folding gate. [hunter_test_hunter_channel_fold_32b15897](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/10_DEX_MODELLERI/hunter_test_hunter_channel_fold_32b15897) | Seven unittests passed. Full scan, trace invariant, invalid input and deliberately wrong remainder | GECTI | 0.865 |
+| Flowing counter, reconstruction and lazy shadow. [hunter_cekirdek](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/01_RESOLVER/hunter_cekirdek) | $1..2^{24}$ reconstruction. Four operations on 100000 pairs. Independent wide-integer checker. Zero errors | PASS | 11.830 |
+| Flowing counter execution trace. [hunter_iz](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/01_RESOLVER/hunter_iz) | $744=1350_8$ reconstruction matches exactly | PASS | 0.314 |
+| Horner remainder flow and initial decomposition. [resolver_emulator](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/01_RESOLVER/resolver_emulator) | 24-bit range and seven channels. Decomposition round trip. Zero errors in extra exponent and rough scans | PASS | 2.066 |
+| Multiplication in the historical N6 ladder. [golge_carpma](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/02_MERDIVEN/golge_carpma) | 8386560 small pairs, 5000000 large pairs. Wide result and small-product limit. Zero errors | PASS | 6.322 |
+| Historical shadow acceptance. [golge_emulator](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/02_MERDIVEN/golge_emulator) | 23 acceptance checks passed. Zero, multiplication, division, factorial and root | PASS | 0.214 |
+| Historical N6 round trip and record digest. [golge_nihai](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/02_MERDIVEN/golge_nihai) | $1..16777215$. Zero round-trip errors, numbers that do not fit and identical digests | PASS | 3.369 |
+| Main shadow implementation. [test_golge_merdiven](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/02_MERDIVEN/test_golge_merdiven) | 24-bit round trip. 8386560 small, 2000000 large products. 999999 overflows and 1000000 divisions. Zero errors | PASS | 7.424 |
+| Historical N6 scope. [test_tum_sayilar](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/02_MERDIVEN/test_tum_sayilar) | $1..16777215$. Zero round-trip failures and failures to fit. Rough tail included | PASS | 3.669 |
+| Additive exponent overflow. [kaskad_uctan_uca_test](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/04_CARPMA_BOLME/kaskad_uctan_uca_test) | $e=0..56$ boundary scan. 3000000 products, 2000000 divisions. Overflow above 28. Zero errors | PASS | 0.815 |
+| Fraction and quarantine v1.4. [kesir_emulator](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/04_CARPMA_BOLME/kesir_emulator) | 25 acceptance checks. Includes 200000 random chains. 25 OK, 0 FAIL | PASS | 0.164 |
+| No number leakage in quarantine. [kesir_v13_v14_kiyas](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/04_CARPMA_BOLME/kesir_v13_v14_kiyas) | 1000000 clean chains and 1000000 chains with division by zero. Clean value and locked numerator trace correct | PASS | 0.615 |
+| Multiplication and division with exponent arithmetic. [mul_div_emulator](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/04_CARPMA_BOLME/mul_div_emulator) | 20000000 products, 10000000 exact and 10000000 general divisions. Old limit of 28. Zero errors | PASS | 3.469 |
+| Multiplication with shifts and addition. [multiply_add](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/04_CARPMA_BOLME/multiply_add) | 65536 byte pairs, 128 wide boundaries, 4000 samples, 26 invalid calls. PASS | PASS | 0.064 |
+| Concrete examples of multiplication and division. [ornekler](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/04_CARPMA_BOLME/ornekler) | 41 examples passed. Smooth, rough, sign, fraction and simplifying chain | PASS | 0.114 |
+| Canonical form of octal scale. [pow_tam_tarama](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/04_CARPMA_BOLME/pow_tam_tarama) | Zero value, idempotence and structure errors in 134217728 states | PASS | 0.264 |
+| Small-operation path in rough multiplication. [rough_fallback_devre_test](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/04_CARPMA_BOLME/rough_fallback_devre_test) | Equal to wide-integer multiplication on 5000000 pairs. Basic small-product operand at most 7 | PASS | 0.965 |
+| Product coefficient and carry. [test_gate_model](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/04_CARPMA_BOLME/test_gate_model) | Four unittests passed. Byte squares, weighted sum, carry and invalid inputs | PASS | 0.114 |
+| Fixed-point root approximation. [frac_test](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/05_KAREKOK/frac_test) | 12 root inputs, five products and symbolic simplification. No numerical acceptance threshold | MEASURED | 0.064 |
+| Exact integer square root. [karekok_emulator](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/05_KAREKOK/karekok_emulator) | 3001 perfect squares, 200001 method equalities, 1000001 floor conditions, three wide boundaries. Zero errors | PASS | 0.114 |
+| Scale inside the root. [kok_virgul_icinde_test](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/05_KAREKOK/kok_virgul_icinde_test) | 134217728 canonical states and 10000000 root products. Six opening examples. Zero errors | PASS | 0.314 |
+| Relative error of the approximate root. [test_dogruluk](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/05_KAREKOK/test_dogruluk) | $2..16777215$. Error scan of five approximations. No acceptance threshold. The exact root row is not measured | MEASURED | 0.364 |
+| Lock, numerator trace and new load. [karantina_cift_demo](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/06_TIPLER/karantina_cift_demo) | Lock on division by zero, trace accumulation, zero numerator distinction and LOAD clearing. Zero errors | PASS | 0.032 |
+| Distinguishing approximate zero from undefined. [tanimsiz_kodlama_test](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/06_TIPLER/tanimsiz_kodlama_test) | 6001 small values, 24-bit divisor scan. 4668 collisions in the old code, zero in the new | PASS | 0.032 |
+| Type and scale canonicity. [tur_pow_tam_tarama](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/06_TIPLER/tur_pow_tam_tarama) | Zero value, idempotence and structure errors in 1073741824 states. Not ISA completeness | PASS | 4.771 |
+| Type multiplication, inverse and sign. [tur_x_tur_test](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/06_TIPLER/tur_x_tur_test) | 22500 products, 14400 divisions, 150 sign trials. Zero errors. An auxiliary algebraic record is used | PASS | 0.114 |
+| Journal claims. [journal_tests](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/07_GUNLUK_IDDIALARI/journal_tests) | 22 cards. 15 HOLDS, 4 FAILS, 3 UNTESTED. Zero execution errors. Details below | MEASURED | 0.564 |
+| Rough distribution and operation cost. [hunter_golge_vs_klasik_ad96e0c4](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/09_CPU_ARITMETIGI/hunter_golge_vs_klasik_ad96e0c4) | 24-bit distribution, model operation counts on 200000 pairs. Hardware time and power are not measured | MEASURED | 0.715 |
+| Binary channel folding. [hunter_hunter_channel_fold_bb562e20](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/14_DEX_MATEMATIK_KAPILARI/hunter_hunter_channel_fold_bb562e20) | 393216 remainders, 1681095 folding invariants and five invalid inputs. PASS | PASS | 0.565 |
+| Mersenne flow folding. [hunter_stream026_9dd5af2c](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/11_DEX_ARASTIRMALARI/hunter_stream026_9dd5af2c) | $p=13,31,61,127,521$. Cells of 3,8,16 bits and 2,3,4,8 rows. Equal to direct mod | PASS | 0.114 |
+| Error detection by the folding gate. [hunter_test_hunter_channel_fold_32b15897](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/10_DEX_MODELLERI/hunter_test_hunter_channel_fold_32b15897) | Seven unittests passed. Full scan, trace invariant, invalid input and deliberately wrong remainder | PASS | 0.865 |
 
 
 All runs in the table are dated 25 October 2026.
@@ -1901,8 +1902,8 @@ In addition to the counts from the archive, I calculated the publication example
 
 | Claim and test | Scope | Result | Time, seconds |
 |---|---|---|---:|
-| Numerical correctness of the examples. [ornekleri_dogrula](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/NIHAI_EK/ornekleri_dogrula) | 39046 exact equality checks. Smooth count, CRT, digit weights, colour sets and rational continued fraction convergents | GECTI | 0.041213 |
-| Current counter limit. [sayac_siniri](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/NIHAI_EK/sayac_siniri) | All counter values in seven channels. $2^{4095}$ reconstruction. Rejection at the next exponent and product. Rough exact division and rejection of division by zero | GECTI | 0.329562 |
+| Numerical correctness of the examples. [ornekleri_dogrula](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/NIHAI_EK/ornekleri_dogrula) | 39046 exact equality checks. Smooth count, CRT, digit weights, colour sets and rational continued fraction convergents | PASS | 0.041213 |
+| Current counter limit. [sayac_siniri](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/NIHAI_EK/sayac_siniri) | All counter values in seven channels. $2^{4095}$ reconstruction. Rejection at the next exponent and product. Rough exact division and rejection of division by zero | PASS | 0.329562 |
 
 
 All runs in the table are dated 25 October 2026.
@@ -1916,33 +1917,33 @@ The journal program finished in 0.564 seconds. The journal_tests cards below bel
 
 | Card | Claim and scope | Result | Reason |
 |---|---|---|---|
-| T01 | d101 family. Prime $p=3..31$, $k=0..3$ | GECTI | 40 equalities correct |
-| T02 | Mersenne mod 8. $p=3..79$ | GECTI | 77 exponents correct |
-| T03 | Mersenne divisor condition. Prime $p=3..31$ | GECTI | 14 prime factors meet the condition |
-| T04 | $2p+1$ gate. Eligible prime $p<100$ | GECTI | Three eligible divisors. At $p=3$, the divisor is the number itself |
-| T05 | Octal leading digit. $p=3..300$ | GECTI | 298 forms correct. Not a primality result |
-| T06 | Primality from the leading digit | KALDI | $31=37_8$ is prime. $2047=3777_8=23\cdot89$ is composite. Same leading digit |
-| T07 | Pascal digits | GECTI | 65 digit checks. Small decimal examples and suitable bases for $n=1..30$ |
-| T08 | Carry-free Pascal base threshold | GECTI | 44 base checks. At the threshold and one above for $n=1..15$, one below for $n=2..15$ |
-| T09 | Value of 11 in a base and its square | GECTI | 99 bases and 98 squares |
-| T10 | Primality verdict through the square seal | OLCUM | Open. Small Lucas Lehmer traces exist, seal criterion undefined |
-| T11 | Primality through a short packed sieve | KALDI | $2^{41}-1$ has the divisor $13367=2\cdot163\cdot41+1$. The $k\le64$ search misses it |
-| T12 | Remainder from digit flow | GECTI | 491520 equalities. $n=0..32767$ and $p=3..17$ |
-| T13 | Prime exponent vector in multiplication | GECTI | 4096 comparisons for $a,b=1..64$ |
-| T14 | General primality from a quadratic expression | KALDI | The example $M=3$, $k=3$ gives $42=2\cdot21$ |
-| T15 | Primality after reversing a prime's digits | KALDI | Reversing $19$ gives $91=7\cdot13$ |
-| T16 | The infinitude of Mersenne primes following from this route | OLCUM | Open. No written test or proof |
-| T17 | Historical signature filter | OLCUM | Open. Signature function and fixed set absent |
-| T18 | Pascal central coefficient ladder | GECTI | Step with the neighbouring coefficient correct within $n=0..60$ |
-| T19 | Base difference and neighbouring coefficient | GECTI | $n=1..60$ |
-| T20 | Central coefficient by adding from the ends | GECTI | Rows 0..37 carry-free for the recorded $N=26321361382$. At 38, the central coefficient exceeds the limit |
-| T21 | Pascal row in a Mersenne base | GECTI | Finite exponent and modulus examples. Overflow at $p=5$ also preserved |
-| T22 | Base 3 chain and related equalities | GECTI | 6156 formula equalities. 11 and 1006003 in a limited prime scan |
+| T01 | d101 family. Prime $p=3..31$, $k=0..3$ | HOLDS | 40 equalities correct |
+| T02 | Mersenne mod 8. $p=3..79$ | HOLDS | 77 exponents correct |
+| T03 | Mersenne divisor condition. Prime $p=3..31$ | HOLDS | 14 prime factors meet the condition |
+| T04 | $2p+1$ gate. Eligible prime $p<100$ | HOLDS | Three eligible divisors. At $p=3$, the divisor is the number itself |
+| T05 | Octal leading digit. $p=3..300$ | HOLDS | 298 forms correct. Not a primality result |
+| T06 | Primality from the leading digit | FAILS | $31=37_8$ is prime. $2047=3777_8=23\cdot89$ is composite. Same leading digit |
+| T07 | Pascal digits | HOLDS | 65 digit checks. Small decimal examples and suitable bases for $n=1..30$ |
+| T08 | Carry-free Pascal base threshold | HOLDS | 44 base checks. At the threshold and one above for $n=1..15$, one below for $n=2..15$ |
+| T09 | Value of 11 in a base and its square | HOLDS | 99 bases and 98 squares |
+| T10 | Primality verdict through the square seal | UNTESTED | Open. Small Lucas Lehmer traces exist, seal criterion undefined |
+| T11 | Primality through a short packed sieve | FAILS | $2^{41}-1$ has the divisor $13367=2\cdot163\cdot41+1$. The $k\le64$ search misses it |
+| T12 | Remainder from digit flow | HOLDS | 491520 equalities. $n=0..32767$ and $p=3..17$ |
+| T13 | Prime exponent vector in multiplication | HOLDS | 4096 comparisons for $a,b=1..64$ |
+| T14 | General primality from a quadratic expression | FAILS | The example $M=3$, $k=3$ gives $42=2\cdot21$ |
+| T15 | Primality after reversing a prime's digits | FAILS | Reversing $19$ gives $91=7\cdot13$ |
+| T16 | The infinitude of Mersenne primes following from this route | UNTESTED | Open. No written test or proof |
+| T17 | Historical signature filter | UNTESTED | Open. Signature function and fixed set absent |
+| T18 | Pascal central coefficient ladder | HOLDS | Step with the neighbouring coefficient correct within $n=0..60$ |
+| T19 | Base difference and neighbouring coefficient | HOLDS | $n=1..60$ |
+| T20 | Central coefficient by adding from the ends | HOLDS | Rows 0..37 carry-free for the recorded $N=26321361382$. At 38, the central coefficient exceeds the limit |
+| T21 | Pascal row in a Mersenne base | HOLDS | Finite exponent and modulus examples. Overflow at $p=5$ also preserved |
+| T22 | Base 3 chain and related equalities | HOLDS | 6156 formula equalities. 11 and 1006003 in a limited prime scan |
 
 
 All cards belong to the same journal run dated 25 October 2026.
 
-I did not correct the cards marked KALDI. In the leading colour claim, the same leading digit gives both a prime and a composite number. In the short sieve claim, the search limit leaves the actual divisor outside. The quadratic expression and reversal claims give directly composite results. The test program exits successfully because it expects these counterexamples. Test: [journal_tests](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/07_GUNLUK_IDDIALARI/journal_tests).
+I did not correct the cards marked FAILS. In the leading colour claim, the same leading digit gives both a prime and a composite number. In the short sieve claim, the search limit leaves the actual divisor outside. The quadratic expression and reversal claims give directly composite results. The test program exits successfully because it expects these counterexamples. Test: [journal_tests](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/07_GUNLUK_IDDIALARI/journal_tests).
 
 #### 14.5 Version and scope distinctions
 
@@ -1977,15 +1978,13 @@ The machine path and checker path of the type multiplication test share some nor
 
 Each selected test is in its test folder with its own description, code and run command. The reader can repeat it on their own machine with the same command. I did not change the raw outputs, and I took the numbers in the publication from them.
 
-After the runs I compared the SHA256 digests of 70 source files again. There was no difference. I also wrote the compiler and Python versions into the integrity record. This historical integrity record is not included in this package.
 
 In these runs I did not test a physical FPGA, optical gate, power, area, clock frequency, multicore cube or integrated execution of the current ISA. These topics are open. Experiments mentioned in earlier texts but not rerun here remain recorded measurements.
 
 #### 14.8 Additional check of cell and architecture examples
 
-I also ran 49 sets of checks for the cell, register, overflow, type, quarantine and instruction examples. I compared the 384 input pairs of six colour gates with set operations. I calculated the dimensions, exponent encodings, ladder reconstructions, exact fractions and instruction words. I reran the quarantine and undefined encoding C programs with separate outputs. These additional runs are dated 25 October 2026. I found no errors. I did not add these to the 30 runs above to claim a new volume of independent proof. The separate program and records for these 49 sets are not included in this package. The packaged [example test and command](https://github.com/JamesAugustus/ctcpu-hunter/blob/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/NIHAI_EK/ornekleri_dogrula/TEST.md) check 320 input pairs for five colour gates.
+The published [example verifier](https://github.com/JamesAugustus/ctcpu-hunter/blob/main/TESTLER/NIHAI_EK/ornekleri_dogrula/ornekleri_dogrula.py) compares all 384 ordered input pairs of six colour gates with set operations. Including XNOR, it performs 39,110 equality checks. The 25 October table above records the earlier version with 39,046 checks. The new scope is not included in that historical runtime.
 
-A separate verification program produced the colour gate tables and example calculations. The numerical boxes in the figures come from these calculations. This separate program is not included in this package.
 
 ### 15. What is it for?
 
@@ -2185,7 +2184,7 @@ For p = 3, b = 7 and N(3) = 4. Row 4 has central coefficient 6 < 7, whereas row 
 
 The integer sum 84 + 126 = 210 remains valid. At b = 127, however, N(7) = 9, so the resulting row n = 10 is no longer carry-free. Choosing p = 8 and b = 255 gives central coefficient 252 < 255 and N(8) = 10. Arithmetic correctness and carry-free representation in a selected base are separate checks.
 
-This section builds on the positional representation in my [Pascal project](https://github.com/JamesAugustus/pascal-mersenne-rows). The published [mathematical note](https://github.com/JamesAugustus/pascal-mersenne-rows/blob/main/note.md) describes the selected row and carry-free condition. N(p), defined here, identifies the last row satisfying that condition at a fixed base. Symmetry comes from Pascal coefficients. N(p) limits when they can be read as digits.
+This section builds on the positional representation in my [Pascal project](https://github.com/JamesAugustus/pascal-mersenne-rows). The published [mathematical note](https://github.com/JamesAugustus/pascal-mersenne-rows/blob/main/md/PASCAL_MERSENNE_ROWS.md) describes the selected row and carry-free condition. N(p), defined here, identifies the last row satisfying that condition at a fixed base. Symmetry comes from Pascal coefficients. N(p) limits when they can be read as digits.
 
 ### One thread owns two symmetric positions
 
@@ -2384,13 +2383,13 @@ is the last valid row. For n ≤ N(p), coefficient symmetry can be read directly
 
 For example N(3) = 4. In base 7, row 4 gives digits [1,4,6,4,1] and value 4096. Row 5 has coefficients [1,5,10,10,5,1], but normalized digits [1,6,4,3,5,1]. Symmetric coefficient storage and normalized digit storage are therefore distinct modes.
 
-The mathematical work belongs to [pascal-mersenne-rows](https://github.com/JamesAugustus/pascal-mersenne-rows). The published [earlier note](https://github.com/JamesAugustus/pascal-mersenne-rows/blob/main/note.md) explains the positional representation and carry-free condition. The N(p) extension investigates the last valid row at a fixed base. CTMemTensor does not treat N(p) as proof of a memory-speed advantage.
+The mathematical work belongs to [pascal-mersenne-rows](https://github.com/JamesAugustus/pascal-mersenne-rows). The published [earlier note](https://github.com/JamesAugustus/pascal-mersenne-rows/blob/main/md/PASCAL_MERSENNE_ROWS.md) explains the positional representation and carry-free condition. The N(p) extension investigates the last valid row at a fixed base. CTMemTensor does not treat N(p) as proof of a memory-speed advantage.
 
 ### 8. Implementation status and open decisions
 
 The [PCCPU C example](https://github.com/JamesAugustus/ctcpu-hunter/blob/e65df34d25093974df97b1922d52efb1cdcea84f/kod/PCCPU/pccpu_address_model.c) tests producer/adder dependencies and internally uses classical C(n,j). Its 60,353 checks belong to that existing program. A CTMemTensor centre-address decoder, selectable addressing modes and RAM protocol are not implemented in it.
 
-The local, unpublished illustration performs mathematical address conversions in the browser. It is not an actual thread scheduler or RAM implementation. The [test report](https://github.com/JamesAugustus/ctcpu-hunter/blob/e65df34d25093974df97b1922d52efb1cdcea84f/md/CTCPU_PARTS/PCCPU/TEST_RESULTS.md) defines the existing C test's scope.
+The symmetric addressing options in this section are not implemented in the C model. Part IV states the scope of that model.
 
 Open decisions include addressing mode, two-centre representation, side-bit assignment, operation types, full-value versus descriptor storage, cache validity, core ownership and physical memory layout. They are recorded as systems under consideration. CTMemTensor is a working name, with no claim of a new processor standard, completed hardware or established performance superiority.
 
@@ -2458,9 +2457,3 @@ Symmetric thread records, paired RAM fields, side selection and invalidation aft
 See the [PCCPU design](https://github.com/JamesAugustus/ctcpu-hunter/blob/e65df34d25093974df97b1922d52efb1cdcea84f/md/CTCPU_PARTS/PCCPU/PCCPU.md) and the [step-by-step Turkish explanation](https://github.com/JamesAugustus/ctcpu-hunter/blob/e65df34d25093974df97b1922d52efb1cdcea84f/tr/md/CTCPU_PARCALAR/PCCPU/PCCPU_C_TESTI_ACIKLAMA.md).
 
 Addressing note: C(n,j) here is the test program’s classical binomial notation. CTMemTensor centre-based reading denotes the same central coefficient as N(9,0) = 126. Its addressing alternatives are defined [separately](https://github.com/JamesAugustus/ctcpu-hunter/blob/e65df34d25093974df97b1922d52efb1cdcea84f/md/CTCPU_PARTS/CTMemTensor/CTMemTensor.md).
-
-### CTMemTensor numerical illustration
-
-The CTMemTensor HTML illustration was checked for n = 0..16 and x = 2..255 in three addressing modes: centre pair, left-edge column and doubled geometric coordinate. For all 12,954 row, base and mode combinations, the weighted sum matched (x+1)^n. Coefficients were compared with independently constructed Pascal rows using addition only. Every column was covered exactly once, including a single central position.
-
-The examples N(9,0) = 126 and N(4,-2..+2) = [1,4,6,4,1] were verified. Thirteen invalid inputs were rejected. These results concern the browser's mathematical illustration. They do not validate a C address decoder, concurrent thread execution or a physical RAM protocol.

@@ -319,7 +319,7 @@ Beşinci satırın katsayıları [1,5,10,10,5,1] olarak hâlâ simetriktir. Faka
 
 ### Pascal çalışmasına bağlantı
 
-[Pascal araştırması](https://github.com/JamesAugustus/pascal-mersenne-rows) bu taban gösteriminin matematiksel çalışmasıdır. Yayımdaki [Türkçe not](https://github.com/JamesAugustus/pascal-mersenne-rows/blob/main/tr/note.md), eldesiz koşulu ve belirli satır seçimini açıklar. Burada tanımı verilen N(p), aynı koşulun geçerli olduğu son satırı belirtir. N(p) bir zamanlayıcı veya RAM devresi değildir. Bu tasarımda katsayıların ne zaman doğrudan hane sayılabileceğini belirleyen matematiksel sınırdır.
+[Pascal araştırması](https://github.com/JamesAugustus/pascal-mersenne-rows) bu taban gösteriminin matematiksel çalışmasıdır. Yayımdaki [Türkçe not](https://github.com/JamesAugustus/pascal-mersenne-rows/blob/main/tr/md/PASCAL_MERSENNE_ROWS.md), eldesiz koşulu ve belirli satır seçimini açıklar. Burada tanımı verilen N(p), aynı koşulun geçerli olduğu son satırı belirtir. N(p) bir zamanlayıcı veya RAM devresi değildir. Bu tasarımda katsayıların ne zaman doğrudan hane sayılabileceğini belirleyen matematiksel sınırdır.
 
 ## 11. Simetriyi koruyan RAM kaydı
 

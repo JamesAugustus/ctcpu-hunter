@@ -156,13 +156,13 @@ is the last valid row. For n ≤ N(p), coefficient symmetry can be read directly
 
 For example N(3) = 4. In base 7, row 4 gives digits [1,4,6,4,1] and value 4096. Row 5 has coefficients [1,5,10,10,5,1], but normalized digits [1,6,4,3,5,1]. Symmetric coefficient storage and normalized digit storage are therefore distinct modes.
 
-The mathematical work belongs to [pascal-mersenne-rows](https://github.com/JamesAugustus/pascal-mersenne-rows). The published [earlier note](https://github.com/JamesAugustus/pascal-mersenne-rows/blob/main/note.md) explains the positional representation and carry-free condition. The N(p) extension investigates the last valid row at a fixed base. CTMemTensor does not treat N(p) as proof of a memory-speed advantage.
+The mathematical work belongs to [pascal-mersenne-rows](https://github.com/JamesAugustus/pascal-mersenne-rows). The published [earlier note](https://github.com/JamesAugustus/pascal-mersenne-rows/blob/main/md/PASCAL_MERSENNE_ROWS.md) explains the positional representation and carry-free condition. The N(p) extension investigates the last valid row at a fixed base. CTMemTensor does not treat N(p) as proof of a memory-speed advantage.
 
 ## 8. Implementation status and open decisions
 
 The [PCCPU C example](../../../kod/PCCPU/pccpu_address_model.c) tests producer/adder dependencies and internally uses classical C(n,j). Its 60,353 checks belong to that existing program. A CTMemTensor centre-address decoder, selectable addressing modes and RAM protocol are not implemented in it.
 
-The HTML illustration performs mathematical address conversions in the browser. It is not an actual thread scheduler or RAM implementation. The [test report](../PCCPU/TEST_RESULTS.md) defines the existing C test's scope.
+The [test report](../PCCPU/TEST_RESULTS.md) describes the sequential C model. The addressing schemes in this document remain design proposals.
 
 Open decisions include addressing mode, two-centre representation, side-bit assignment, operation types, full-value versus descriptor storage, cache validity, core ownership and physical memory layout. They are recorded as systems under consideration. CTMemTensor is a working name, with no claim of a new processor standard, completed hardware or established performance superiority.
 

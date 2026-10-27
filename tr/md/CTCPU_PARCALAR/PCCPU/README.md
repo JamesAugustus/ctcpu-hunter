@@ -26,3 +26,5 @@ bash kod/PCCPU/calistir.sh
 ## CTMemTensor ve adresleme seçenekleri
 
 [CTMemTensor](../CTMemTensor/CTMemTensor.md) ayrı bir CTCPU parçası olarak sayı ve konum gösterimini ele alır. Merkezden başlayan sistemde N(9,0) = 126 ve [1,4,6,4,1] satırının adresleri -2,-1,0,+1,+2 olur. PCCPU örneğindeki C(9,4) klasik binom sütunudur. Önceki kenar başlangıçlı thread örneği de düşünülen seçenekler arasında korunur.
+
+C modelinin asıl kaynağı [kod/PCCPU/pccpu_address_model.c](../../../../kod/PCCPU/pccpu_address_model.c) dosyasıdır. Pascal deposunda aynı çevrimdışı örneğin kopyası bulunur.

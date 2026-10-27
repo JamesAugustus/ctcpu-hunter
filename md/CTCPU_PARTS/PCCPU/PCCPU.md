@@ -52,7 +52,7 @@ For p = 3, b = 7 and N(3) = 4. Row 4 has central coefficient 6 < 7, whereas row 
 
 The integer sum 84 + 126 = 210 remains valid. At b = 127, however, N(7) = 9, so the resulting row n = 10 is no longer carry-free. Choosing p = 8 and b = 255 gives central coefficient 252 < 255 and N(8) = 10. Arithmetic correctness and carry-free representation in a selected base are separate checks.
 
-This section builds on the positional representation in my [Pascal project](https://github.com/JamesAugustus/pascal-mersenne-rows). The published [mathematical note](https://github.com/JamesAugustus/pascal-mersenne-rows/blob/main/note.md) describes the selected row and carry-free condition. N(p), defined here, identifies the last row satisfying that condition at a fixed base. Symmetry comes from Pascal coefficients. N(p) limits when they can be read as digits.
+This section builds on the positional representation in my [Pascal project](https://github.com/JamesAugustus/pascal-mersenne-rows). The published [mathematical note](https://github.com/JamesAugustus/pascal-mersenne-rows/blob/main/md/PASCAL_MERSENNE_ROWS.md) describes the selected row and carry-free condition. N(p), defined here, identifies the last row satisfying that condition at a fixed base. Symmetry comes from Pascal coefficients. N(p) limits when they can be read as digits.
 
 ## One thread owns two symmetric positions
 

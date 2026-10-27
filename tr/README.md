@@ -25,7 +25,7 @@ James Augustus. [ORCID: 0009-0002-7286-7730](https://orcid.org/0009-0002-7286-77
 | [PCCPU](md/CTCPU_PARCALAR/PCCPU/README.md) ([PDF](pdf/CTCPU_PARCALAR/PCCPU/PCCPU.pdf)) | Hücre adresleme, C modeli, simetrik thread önerisi ve [test sonuçları](md/CTCPU_PARCALAR/PCCPU/TEST_SONUCLARI.md) |
 | [CTMemTensor](md/CTCPU_PARCALAR/CTMemTensor/CTMemTensor.md) ([PDF](pdf/CTCPU_PARCALAR/CTMemTensor/CTMemTensor.pdf)) | Merkezden adresleme ve düşünülen bellek sistemleri |
 | [Hunter'a Giden Yol](pdf/YOL.pdf) ([Markdown](md/YOL.md)) | Araştırma günlüğüm, ne denedim, ne tuttu, ne tutmadı |
-| [Testler](../TESTLER/README_TR.md) | Nihai Form'daki iddiaların testleri |
+| [Testler](TESTLER/README.md) | Nihai Form'daki iddiaların testleri |
 | [Küçük Mesaj](md/KUCUK_MESAJ.md) | Bunu neden yapıyorum |
 | [Bir Not](md/NOT.md) | Bilgi, ego ve sıra üzerine |
 | [English](../README.md) | Deponun İngilizce girişi |
@@ -36,7 +36,7 @@ Ana metinleri `md/` altında Markdown, `pdf/` içindeki karşılık gelen klasö
 
 ## Testleri çalıştır
 
-Nihai Form'un dayandığı testler [TESTLER](../TESTLER/README_TR.md) klasöründe. Her testin kendi klasöründe ne yaptığını anlatan Türkçe bir `TEST_TR.md` (İngilizcesi `TEST.md`) ve tek satırlık çalıştırma komutu var.
+Nihai Form'un dayandığı testlerin Türkçe açıklamaları [TESTLER](TESTLER/README.md) ağacındadır. Çalıştırılabilir kaynaklar depo kökündeki [TESTLER](../TESTLER/) ağacında kalır. Her testin kendi klasöründe ne yaptığını anlatan Türkçe bir `TEST.md` ve tek satırlık çalıştırma komutu var.
 
 Günlükteki 22 iddianın testi ayrı bir programdır. C99 derleyicisi bulunan bir bilgisayarda, deponun ana klasöründen şu komutlarla çalışır:
 

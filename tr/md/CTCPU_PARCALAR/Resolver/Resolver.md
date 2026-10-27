@@ -124,7 +124,7 @@ Gerçekten $37634 \bmod 8191 = 4870$.
 
 ### 2.5 Kod ve sınama
 
-Python. $p = 13, 31, 61, 127, 521$ ve $4096$ ile, farklı parça genişlikleriyle sınandı. [Paketlenen test komutu](../../../../TESTLER/HUNTER/11_DEX_ARASTIRMALARI/hunter_stream026_9dd5af2c/TEST_TR.md) ilk beş değeri kapsar. Ek $p = 4096$ kontrolü bu paketin dışındaki tarihsel bir denetimdir. Bu çalışma yalnız kalanı hesaplar, sayının asal olup olmadığına karar vermez.
+Python. $p = 13, 31, 61, 127, 521$ ve $4096$ ile, farklı parça genişlikleriyle sınandı. [Paketlenen test komutu](../../../TESTLER/HUNTER/11_DEX_ARASTIRMALARI/hunter_stream026_9dd5af2c/TEST.md) ilk beş değeri kapsar. Ek $p = 4096$ kontrolü bu paketin dışındaki tarihsel bir denetimdir. Bu çalışma yalnız kalanı hesaplar, sayının asal olup olmadığına karar vermez.
 
 ### 2.6 Farkı
 

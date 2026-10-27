@@ -1,3 +1,6 @@
+/* Canonical source: JamesAugustus/ctcpu-hunter, kod/PCCPU/pccpu_address_model.c.
+ * The Pascal repository distributes the same offline example. License: MIT.
+ */
 /* Logical PCCPU cell example. Sequential C software, not hardware.
  * James Augustus. MIT license (see LICENSE).
  * Addresses identify records, not bytes or a physical memory bus.

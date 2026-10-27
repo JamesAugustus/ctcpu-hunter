@@ -26,3 +26,5 @@ The working model implements two producers, an adder and controller state. A RAM
 ## CTMemTensor and addressing alternatives
 
 [CTMemTensor](../CTMemTensor/CTMemTensor.md) is a separate CTCPU part concerned with values and positions. Centre-based reading gives N(9,0) = 126 and addresses -2,-1,0,+1,+2 for [1,4,6,4,1]. C(9,4) in the PCCPU example uses a classical binomial column. The earlier edge-based thread example remains one of the alternatives.
+
+The canonical C source is [kod/PCCPU/pccpu_address_model.c](../../../kod/PCCPU/pccpu_address_model.c). The Pascal repository carries the same offline example.

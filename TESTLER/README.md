@@ -1,8 +1,8 @@
 # Tests
 
-[Türkçe](README_TR.md)
+[Türkçe](../tr/TESTLER/README.md)
 
-This folder contains the tests supporting the claims in Final Form. Each test has its own folder with its code, a `TEST.md` description in English and `TEST_TR.md` in Turkish. The description states what the test checks, how it works, why it matters and the single-line command to run it.
+This folder contains the tests supporting the claims in Final Form. Each test has its own folder with its code and a `TEST.md` description in English. Turkish descriptions are under `tr/TESTLER/` at the same relative locations. The description states what the test checks, how it works, why it matters and the single-line command to run it.
 
 Commands are run from the repository root. GCC is enough for C tests, and Python 3 for Python tests.
 

@@ -52,7 +52,7 @@ p = 3 için b = 7 ve N(3) = 4 olur. Çünkü dördüncü satırın merkezi 6 < 7
 
 84 + 126 = 210 işlemi tamsayı hesabı olarak geçerlidir. Fakat b = 127 tabanında N(7) = 9 olduğundan, sonuç satırı n = 10 artık eldesiz değildir. p = 8, b = 255 seçildiğinde merkez 252 < 255 olur ve N(8) = 10 sınırına kadar haneler korunur. Bu yüzden hesap sonucunun doğru olması ile seçilmiş tabanda eldesiz gösterilebilmesi ayrı kontrollerdir.
 
-Bu bölüm, [Pascal araştırmamın](https://github.com/JamesAugustus/pascal-mersenne-rows) taban gösterimine dayanır. Yayımdaki [Türkçe matematik notu](https://github.com/JamesAugustus/pascal-mersenne-rows/blob/main/tr/note.md) belirli satır seçimini ve eldesiz koşulu açıklar. Buradaki N(p) tanımı, sabit tabanda bu koşulu sağlayan son satırı belirtir. Simetri, Pascal katsayılarının özelliğidir. N(p) ise bu katsayıların hane olarak okunabileceği aralığı sınırlar.
+Bu bölüm, [Pascal araştırmamın](https://github.com/JamesAugustus/pascal-mersenne-rows) taban gösterimine dayanır. Yayımdaki [Türkçe matematik notu](https://github.com/JamesAugustus/pascal-mersenne-rows/blob/main/tr/md/PASCAL_MERSENNE_ROWS.md) belirli satır seçimini ve eldesiz koşulu açıklar. Buradaki N(p) tanımı, sabit tabanda bu koşulu sağlayan son satırı belirtir. Simetri, Pascal katsayılarının özelliğidir. N(p) ise bu katsayıların hane olarak okunabileceği aralığı sınırlar.
 
 ## Bir thread, simetrik iki konum
 

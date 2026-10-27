@@ -60,10 +60,3 @@ Symmetric thread records, paired RAM fields, side selection and invalidation aft
 See the [PCCPU design](PCCPU.md) and the [step-by-step Turkish explanation](../../../tr/md/CTCPU_PARCALAR/PCCPU/PCCPU_C_TESTI_ACIKLAMA.md).
 
 Addressing note: C(n,j) here is the test program’s classical binomial notation. CTMemTensor centre-based reading denotes the same central coefficient as N(9,0) = 126. Its addressing alternatives are defined [separately](../CTMemTensor/CTMemTensor.md).
-
-
-## CTMemTensor numerical illustration
-
-The CTMemTensor HTML illustration was checked for n = 0..16 and x = 2..255 in three addressing modes: centre pair, left-edge column and doubled geometric coordinate. For all 12,954 row, base and mode combinations, the weighted sum matched (x+1)^n. Coefficients were compared with independently constructed Pascal rows using addition only. Every column was covered exactly once, including a single central position.
-
-The examples N(9,0) = 126 and N(4,-2..+2) = [1,4,6,4,1] were verified. Thirteen invalid inputs were rejected. These results concern the browser's mathematical illustration. They do not validate a C address decoder, concurrent thread execution or a physical RAM protocol.

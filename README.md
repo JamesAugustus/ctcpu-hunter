@@ -25,7 +25,7 @@ James Augustus. [ORCID: 0009-0002-7286-7730](https://orcid.org/0009-0002-7286-77
 | [PCCPU](md/CTCPU_PARTS/PCCPU/README.md) ([PDF](pdf/CTCPU_PARTS/PCCPU/PCCPU.pdf)) | Cell addressing, the C model, proposed symmetric threads and [test results](md/CTCPU_PARTS/PCCPU/TEST_RESULTS.md) |
 | [CTMemTensor](md/CTCPU_PARTS/CTMemTensor/CTMemTensor.md) ([PDF](pdf/CTCPU_PARTS/CTMemTensor/CTMemTensor.pdf)) | Centre-based addressing and memory systems under consideration |
 | [The Road So Far](pdf/THE_ROAD_SO_FAR.pdf) ([Markdown](md/THE_ROAD_SO_FAR.md)) | My research journal: what I tried, what worked, what failed |
-| [Tests](TESTLER/README.md) | Tests behind the claims in the Final Form. Each folder has `TEST.md` in English, `TEST_TR.md` in Turkish and a one line command |
+| [Tests](TESTLER/README.md) | Tests behind the claims in the Final Form. Each folder has an English `TEST.md` and a run command. Turkish descriptions mirror the same paths under `tr/TESTLER/` |
 | [A Little Message](md/A_LITTLE_MESSAGE.md) | Why I am doing this |
 | [A Note](md/NOTE.md) | On knowledge, ego and order |
 | [Türkçe](tr/README.md) | The whole repository in Turkish |
@@ -64,4 +64,3 @@ I am still not very comfortable with Python. I am not good at C either, and some
 I did most of the work by hand first. The twenty pages where I looked for a square root method from a single Pythagorean triangle, the binomial expansions I worked out crosswise by hand and the notes I took on any blank paper I found are at home. Anyone who wants to see them can come and look, but they are all in rather poor condition.
 
 I thank in advance the people I cited and everyone I could not name who contributed to this work in some way.
-

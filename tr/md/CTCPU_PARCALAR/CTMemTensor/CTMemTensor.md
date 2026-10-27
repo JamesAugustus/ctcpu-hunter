@@ -156,13 +156,13 @@ bu koşulu sağlayan son satırı verir. n ≤ N(p) aralığında katsayı simet
 
 Örneğin N(3) = 4'tür. Yedi tabanında n = 4 satırı [1,4,6,4,1] ve değer 4096'dır. n = 5 katsayıları [1,5,10,10,5,1] iken normalleştirilmiş haneler [1,6,4,3,5,1] olur. Bu nedenle simetrik katsayı saklama ile normalleştirilmiş hane saklama ayrı kiplerdir.
 
-Matematiksel çalışma [pascal-mersenne-rows](https://github.com/JamesAugustus/pascal-mersenne-rows) deposundadır. Yayımdaki [önceki Türkçe not](https://github.com/JamesAugustus/pascal-mersenne-rows/blob/main/tr/note.md) taban gösterimini ve eldesiz koşulu açıklar. N(p) eki sabit tabandaki son geçerli satırı inceler. CTMemTensor, N(p)'yi bellek hızını kanıtlayan bir sonuç olarak kullanmaz.
+Matematiksel çalışma [pascal-mersenne-rows](https://github.com/JamesAugustus/pascal-mersenne-rows) deposundadır. Yayımdaki [önceki Türkçe not](https://github.com/JamesAugustus/pascal-mersenne-rows/blob/main/tr/md/PASCAL_MERSENNE_ROWS.md) taban gösterimini ve eldesiz koşulu açıklar. N(p) eki sabit tabandaki son geçerli satırı inceler. CTMemTensor, N(p)'yi bellek hızını kanıtlayan bir sonuç olarak kullanmaz.
 
 ## 8. Uygulama durumu ve açık kararlar
 
 [PCCPU C örneği](../../../../kod/PCCPU/pccpu_address_model.c), üretici ve toplayıcı görevlerinin bağımlılığını sınar. İç hesapta klasik C(n,j) katsayıları kullanılır. 60.353 kontrol bu mevcut programa aittir. CTMemTensor'ın merkez adres çözücüsü, seçilebilir adresleme kipleri veya RAM protokolü bu C programında henüz uygulanmamıştır.
 
-HTML rehberindeki sayısal gösterim, adres dönüşümlerini ve simetrik katsayı çiftlerini açıklayan bir tarayıcı hesabıdır. Gerçek bir thread zamanlayıcısı veya RAM gerçekleştirmesi değildir. [Test sonuçları](../PCCPU/TEST_SONUCLARI.md), mevcut C testinin kapsamını belirtir.
+[Test sonuçları](../PCCPU/TEST_SONUCLARI.md) sıralı C modelinin kapsamını açıklar. Bu belgedeki adresleme şemaları tasarım önerileridir.
 
 Açık kararlar adresleme kipinin seçimi, çift merkez durumunun gösterimi, yön bitinin kodlanması, işlem türleri, tam değer veya tarif saklama, önbellek geçerliliği, çekirdek sahipliği ve fiziksel bellek yerleşimidir. Bu belge bunları düşünülen sistemler olarak kayda geçirir. CTMemTensor çalışma adıdır. Yeni bir işlemci standardı, bitmiş donanım veya kanıtlanmış performans üstünlüğü iddiası yoktur.
 
