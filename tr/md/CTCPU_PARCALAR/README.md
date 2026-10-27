@@ -31,6 +31,7 @@ Bu işe renkten başladım: üç ışık kanalı sekiz renk, sekiz renk bir seki
 | | Karekök | [ALU/Karekok](ALU/Karekok/Karekok.md) | üs yarılama, sembolik kök, sürekli kesir |
 | 5 | Türler | [Turler](Turler/Turler.md) | sekiz tür kodu ve durumlar |
 | 6 | Çekirdek | [Cekirdek](Cekirdek/Cekirdek.md) | parçaların birleşmesi, bir komutun yolculuğu |
+| 7 | CTMemTensor | [CTMemTensor](CTMemTensor/CTMemTensor.md) | merkezden adresleme, simetrik kayıt ve düşünülen bellek sistemleri |
 
 Komut biçimleri [ISA](../ISA.md) belgesindedir.
 
@@ -55,6 +56,7 @@ Tek çekirdek, tek iş parçacığı ve sekiz register kullanıyorum: $R0 \dots 
 | Karekök | üs yarılama, sembolik kök, hane hane kök | güncel |
 | Kontrol | program sayacı, komut çözücü, saat | görevleri tanımlı, zamanlaması açık |
 | ISA | işlem kodları, mod bitleri | Hunter taslağı, açıkları var |
+| [CTMemTensor](CTMemTensor/CTMemTensor.md) | sayı, konum ve simetri ilişkisi için bellek kaydı | düşünülen sistemler, fiziksel RAM veya C adres çözücüsü henüz yok |
 
 ## 4. Önceki tasarımlardaki parçalar
 

@@ -4,6 +4,12 @@
 
 CTCPU is a processor idea I have been working on, which later became Hunter. I started from colour. Its smallest unit is three bits, shown as one of eight colours, and a number can also be kept in a second "shadow" form made of prime exponents. The machine tries to calculate the way a person does: it factors, keeps the symbol, and opens it only at the end. There is no chip and no measured speed or energy result. This is a record of work in progress, not a finished processor.
 
+## Consolidated technical study
+
+The Hunter text, PCCPU task model and CTMemTensor memory options are collected in a [Turkish PDF](yayin/CTCPU_HUNTER_BIRLESIK_TR.pdf), with [Markdown](yayin/CTCPU_HUNTER_BIRLESIK_TR.md). The separate English documents remain available below.
+
+James Augustus. [ORCID: 0009-0002-7286-7730](https://orcid.org/0009-0002-7286-7730).
+
 ## Where to start
 
 | Document | What it covers |
@@ -16,7 +22,8 @@ CTCPU is a processor idea I have been working on, which later became Hunter. I s
 | [Resolver experiments](md/CTCPU_PARTS/Resolver/Experiments/Experiments.md) | The other forms I tried |
 | [Gear model](md/CTCPU_PARTS/Resolver/Gear.md) | Resolver explained with gears |
 | [ISA](md/ISA.md) | The instruction set |
-| [PCCPU](pdf/CTCPU_PARTS/PCCPU/PCCPU.pdf) ([Markdown](md/CTCPU_PARTS/PCCPU/PCCPU.md)) | The separate controller I am still designing |
+| [PCCPU](md/CTCPU_PARTS/PCCPU/README.md) ([PDF](pdf/CTCPU_PARTS/PCCPU/PCCPU.pdf)) | Cell addressing, the C model, proposed symmetric threads and [test results](md/CTCPU_PARTS/PCCPU/TEST_RESULTS.md) |
+| [CTMemTensor](md/CTCPU_PARTS/CTMemTensor/CTMemTensor.md) ([PDF](pdf/CTCPU_PARTS/CTMemTensor/CTMemTensor.pdf)) | Centre-based addressing and memory systems under consideration |
 | [The Road So Far](pdf/THE_ROAD_SO_FAR.pdf) ([Markdown](md/THE_ROAD_SO_FAR.md)) | My research journal: what I tried, what worked, what failed |
 | [Tests](TESTLER/README.md) | Tests behind the claims in the Final Form. Each folder has `TEST.md` in English, `TEST_TR.md` in Turkish and a one line command |
 | [A Little Message](md/A_LITTLE_MESSAGE.md) | Why I am doing this |

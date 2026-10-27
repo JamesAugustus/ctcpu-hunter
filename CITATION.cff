@@ -2,7 +2,9 @@ cff-version: 1.2.0
 message: "If you use this work, please cite it as below."
 title: "CTCPU and Hunter: The Road So Far"
 authors:
-  - name: "James Augustus"
+  - given-names: "James"
+    family-names: "Augustus"
+    orcid: "https://orcid.org/0009-0002-7286-7730"
     email: "jamesaugustus1313@gmail.com"
 license:
   - MIT

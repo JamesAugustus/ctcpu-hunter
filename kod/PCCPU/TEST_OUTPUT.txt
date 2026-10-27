@@ -1,0 +1,29 @@
+C / GMP derleniyor...
+PASS adresler, gecersiz istekler, bagimlilik ve tek sefer calisma
+PASS alti farkli isci sirasi
+PASS 20100 Pascal toplami, yalniz toplama kullanan bagimsiz karsilastirma
+PASS eldesiz satir carpimi ve sinir kontrolleri
+SONUC: 60353 kontrol gecti, 0 hata.
+
+PCCPU HUCRE MODELI - C / GMP
+Sirali yazilim modeli. Mantiksal tur, fiziksel saat cevrimi degildir.
+[1000: A] [1001: B] [1002: C]
+[1003: sonuc] [1004: PCCPU denetleyici] [1005: bos]
+A = C(9,3), B = C(9,4), C = A+B -> C(10,4)
+
+Tur 1 | olay 1 | isci A | adres 1000 -> 1000 | deger 84
+Tur 1 | olay 2 | isci B | adres 1001 -> 1001 | deger 126
+Tur 2 | olay 3 | isci C | adres 1002 -> 1003 | deger 210
+
+Sonuc hucresi [1003] = 210
+PCCPU [1004]: 3 olay, 2 tur, son isci adresi 1002
+
+Buyuk sayi: C(199,99) + C(199,100) = C(200,100)
+Tur 1 | olay 1 | isci A | adres 1000 -> 1000 | deger 45274257328051640582702088538742081937252294837706668420660
+Tur 1 | olay 2 | isci B | adres 1001 -> 1001 | deger 45274257328051640582702088538742081937252294837706668420660
+Tur 2 | olay 3 | isci C | adres 1002 -> 1003 | deger 90548514656103281165404177077484163874504589675413336841320
+Sonuc = 90548514656103281165404177077484163874504589675413336841320
+
+Satir carpimi: 121 x 121 = 14641 (eldesiz).
+1331 x 121 = 161051 (elde gerekiyor).
+Adres, degerin kendisi degildir. Degeri hesaplama isi bu C modelinde GMP ile yapilir.

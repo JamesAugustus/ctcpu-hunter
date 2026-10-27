@@ -4,6 +4,12 @@
 
 CTCPU, üzerinde çalıştığım ve sonradan Hunter olan bir işlemci fikri. Bu işe renkten başladım. En küçük birimi üç bit, yani sekiz renkten biri. Sayılar ayrıca asal üslerden oluşan ikinci bir "gölge" biçiminde de tutulabiliyor. Makine insan gibi hesaplamaya çalışıyor: çarpanına ayırır, sembolü tutar, en sonda açar. Elde çip yok, ölçülmüş bir hız ya da enerji sonucu da yok. Bu, devam eden bir çalışmanın kaydı, bitmiş bir işlemci değil.
 
+## Birleşik teknik çalışma
+
+Hunter ana metni, PCCPU görev modeli ve CTMemTensor bellek seçenekleri aynı belgede sunulur: [Türkçe PDF](../yayin/CTCPU_HUNTER_BIRLESIK_TR.pdf), [Markdown](../yayin/CTCPU_HUNTER_BIRLESIK_TR.md).
+
+James Augustus. [ORCID: 0009-0002-7286-7730](https://orcid.org/0009-0002-7286-7730).
+
 ## Nereden başlamalı
 
 | Belge | Ne anlatıyor |
@@ -16,7 +22,8 @@ CTCPU, üzerinde çalıştığım ve sonradan Hunter olan bir işlemci fikri. Bu
 | [Resolver deneyleri](md/CTCPU_PARCALAR/Resolver/Deneyler/Deneyler.md) | Denediğim öteki biçimler |
 | [Dişli modeli](md/CTCPU_PARCALAR/Resolver/Cark.md) | Resolver'ın dişlilerle anlatımı |
 | [ISA](md/ISA.md) | Komut kümesi |
-| [PCCPU](pdf/CTCPU_PARCALAR/PCCPU/PCCPU.pdf) ([Markdown](md/CTCPU_PARCALAR/PCCPU/PCCPU.md)) | Hâlâ tasarladığım ayrı denetleyici |
+| [PCCPU](md/CTCPU_PARCALAR/PCCPU/README.md) ([PDF](pdf/CTCPU_PARCALAR/PCCPU/PCCPU.pdf)) | Hücre adresleme, C modeli, simetrik thread önerisi ve [test sonuçları](md/CTCPU_PARCALAR/PCCPU/TEST_SONUCLARI.md) |
+| [CTMemTensor](md/CTCPU_PARCALAR/CTMemTensor/CTMemTensor.md) ([PDF](pdf/CTCPU_PARCALAR/CTMemTensor/CTMemTensor.pdf)) | Merkezden adresleme ve düşünülen bellek sistemleri |
 | [Hunter'a Giden Yol](pdf/YOL.pdf) ([Markdown](md/YOL.md)) | Araştırma günlüğüm, ne denedim, ne tuttu, ne tutmadı |
 | [Testler](../TESTLER/README_TR.md) | Nihai Form'daki iddiaların testleri |
 | [Küçük Mesaj](md/KUCUK_MESAJ.md) | Bunu neden yapıyorum |

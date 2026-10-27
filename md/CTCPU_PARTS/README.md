@@ -31,6 +31,7 @@ I started this with colour: three light channels make eight colours, and eight c
 | | Square root | [ALU/Square_Root](ALU/Square_Root/Square_Root.md) | halving exponents, symbolic root, continued fraction |
 | 5 | Types | [Types](Types/Types.md) | eight type codes and statuses |
 | 6 | Core | [Core](Core/Core.md) | bringing the parts together, the path of one instruction |
+| 7 | CTMemTensor | [CTMemTensor](CTMemTensor/CTMemTensor.md) | centre-based addressing, symmetric records and proposed memory systems |
 
 Instruction formats are in [ISA](../ISA.md).
 
@@ -55,6 +56,7 @@ I use one core, one thread and eight registers: $R0 \dots R7$. Each register has
 | Square root | halving exponents, symbolic root, digit-by-digit root | current |
 | Control | program counter, instruction decoder, clock | roles defined, timing open |
 | ISA | operation codes, mode bits | Hunter draft, has open parts |
+| [CTMemTensor](CTMemTensor/CTMemTensor.md) | memory records for values, positions and symmetry | design alternatives, no physical RAM or C address decoder yet |
 
 ## 4. Parts from earlier designs
 
