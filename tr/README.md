@@ -1,12 +1,12 @@
-# CTCPU ve Hunter
+# CTCPU-Hunter
 
 > **Silikon yok.** MHz ve watt değerleri ile donanıma ilişkin cycle tahminleri model değerleridir. Arşivdeki seçili emülatör kaynakları bu paket için yeniden çalıştırıldı. Önceki emülatör ölçümleri tarihsel kayıt olarak kalıyor. Burada çalıştırılabilen kod, 30 arşiv testini ve `TESTLER/NIHAI_EK/` altındaki iki doğrulama programını içeriyor.
 
 CTCPU, üzerinde çalıştığım ve sonradan Hunter olan bir işlemci fikri. Bu işe renkten başladım. En küçük birimi üç bit, yani sekiz renkten biri. Sayılar ayrıca asal üslerden oluşan ikinci bir "gölge" biçiminde de tutulabiliyor. Makine insan gibi hesaplamaya çalışıyor: çarpanına ayırır, sembolü tutar, en sonda açar. Elde çip yok, ölçülmüş bir hız ya da enerji sonucu da yok. Bu, devam eden bir çalışmanın kaydı, bitmiş bir işlemci değil.
 
-## Birleşik teknik çalışma
+## Teknik metin
 
-Hunter ana metni, PCCPU görev modeli ve CTMemTensor bellek seçenekleri aynı belgede sunulur: [Türkçe PDF](../yayin/CTCPU_HUNTER_BIRLESIK_TR.pdf), [Markdown](../yayin/CTCPU_HUNTER_BIRLESIK_TR.md).
+[Ana metin](md/CTCPU_HUNTER.md) ve [PDF](pdf/CTCPU_HUNTER.pdf).
 
 James Augustus. [ORCID: 0009-0002-7286-7730](https://orcid.org/0009-0002-7286-7730).
 
@@ -14,7 +14,7 @@ James Augustus. [ORCID: 0009-0002-7286-7730](https://orcid.org/0009-0002-7286-77
 
 | Belge | Ne anlatıyor |
 |---|---|
-| [Çok basit anlatım](pdf/BASIT_ANLATIM.pdf) ([Markdown](BASIT_ANLATIM.md)) | Bütün fikir tek sayfada, sade sözlerle |
+| [Çok basit anlatım](pdf/BASIT_ANLATIM.pdf) ([Markdown](md/BASIT_ANLATIM.md)) | Bütün fikir tek sayfada, sade sözlerle |
 | [Nihai Form](pdf/NIHAI_FORM/CTCPU_NIHAI.pdf) ([Markdown](md/NIHAI_FORM/CTCPU_NIHAI.md)) | Bütün makine tek belgede: hücre, renk kapıları, register, Resolver, çarpma, bölme, karekök, türler, çekirdek ve doğrulama |
 | [CTCPU](md/CTCPU.md) | Makinenin kısa tanımı |
 | [CTCPU parçaları](md/CTCPU_PARCALAR/README.md) | Her parçanın ayrı belgesi |

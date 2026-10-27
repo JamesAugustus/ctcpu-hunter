@@ -1,4 +1,4 @@
-# CTCPU-Hunter: Sayı Gösterimi, Yürütme ve Bellek Modelleri
+# CTCPU-Hunter
 
 James Augustus
 
@@ -6,7 +6,7 @@ James Augustus
 
 ## Öz
 
-Bu birleşik çalışma, CTCPU-Hunter mimarisinin sayı gösterimlerini, aritmetik yöntemlerini, PCCPU denetleyici önerisini ve CTMemTensor bellek ve adresleme seçeneklerini ele alır. Mevcut matematiksel sonuçlar, hesaplanan örnekler ve tasarım önerileri aynı okuma düzeninde sunulur. Hunter çekirdeği, eski çok çekirdekli öneriler, sıralı C modeli ve tasarlanan simetrik bellek aynı tamamlanma düzeyinde değildir.
+Bu çalışma, CTCPU-Hunter mimarisinin sayı gösterimlerini, aritmetik yöntemlerini, PCCPU denetleyici önerisini ve CTMemTensor bellek ve adresleme seçeneklerini ele alır. Mevcut matematiksel sonuçlar, hesaplanan örnekler ve tasarım önerileri aynı okuma düzeninde sunulur. Hunter çekirdeği, eski çok çekirdekli öneriler, sıralı C modeli ve tasarlanan simetrik bellek aynı tamamlanma düzeyinde değildir.
 
 ## Kapsam ve okuma düzeni
 
@@ -52,7 +52,7 @@ $r=1$ olduğunda baş hane kırmızı 1 olur. $r=2$ olduğunda sarı 3 olur. $r=
 
 Gölgede çarpma biraz logaritma gibi davranıyor: çarpım, üslerin toplamına dönüşüyor. Farkı, sonlu hassasiyetli logaritmik gösterimin yaklaşık olması, gölgenin ise kapasitesi içinde tamsayı üslerle kesin kalması.
 
-Ne istediğimi 18 Temmuz 2026'da bir manifestoda yazdım. O metin [Küçük Mesaj](https://github.com/JamesAugustus/ctcpu-hunter) içinde duruyor. Bu yolda ne düşündüğümü, neleri denediğimi, neyin tutup neyin tutmadığını da günlüğümde tarih tarih yazdım.
+Ne istediğimi 18 Temmuz 2026'da bir manifestoda yazdım. O metin [Küçük Mesaj](https://github.com/JamesAugustus/ctcpu-hunter/blob/e65df34d25093974df97b1922d52efb1cdcea84f/tr/md/KUCUK_MESAJ.md) içinde duruyor. Bu yolda ne düşündüğümü, neleri denediğimi, neyin tutup neyin tutmadığını da günlüğümde tarih tarih yazdım.
 
 #### 1.3 Derin nefes
 
@@ -91,7 +91,7 @@ $$d=b_R+2b_G+4b_B,\qquad b_R,b_G,b_B\in\{0,1\}.$$
 | 6 | 110 | C | camgöbeği | $\{G,B\}$ |
 | 7 | 111 | W | beyaz | $\{R,G,B\}$ |
 
-![Şekil 1. Hücredeki üç kanal ve hesapla üretilen sekiz bit deseni. Dolu kare 1, boş kare 0'dır.](figures/hunter0_hucre.svg)
+![Şekil 1. Hücredeki üç kanal ve hesapla üretilen sekiz bit deseni. Dolu kare 1, boş kare 0'dır.](figures/hunter/hunter0_hucre.svg)
 
 Sekizlik rakam ile renk kodu aynı değeri anlatır. Tür kodu da aynı büyüklükte bir hücreye sığar. Buna rağmen sayı hanesi ile tür hücresini aynı anlamda okumam. Hücrenin bulunduğu alan, kodun yorumunu belirler.
 
@@ -271,7 +271,7 @@ $2124=4114_8$ için ilk katta $2^2\cdot3^2=36$ soyuyorum. Kalan 59 olur. $59=8\c
 
 $$2124=2^2\cdot3^2\cdot(8\cdot7+3).$$
 
-![Şekil 2. 2124 için hesaplanan register. Soru işareti henüz yerleşimi kararlaştırılmamış alanı, boş kutular kullanılmayan katı gösterir.](figures/hunter0_register.svg)
+![Şekil 2. 2124 için hesaplanan register. Soru işareti henüz yerleşimi kararlaştırılmamış alanı, boş kutular kullanılmayan katı gösterir.](figures/hunter/hunter0_register.svg)
 
 Bu örnekte $rc$'yi son işlenmemiş artık olarak okursam $rc=1$ olur. İlk rough çarpanın önbelleği olarak okursam $rc=59$ olur. Şekilde $rc=1$ kullandım. $rc$'nin kesin anlamını henüz seçmedim. Bu iki okumayı aynı çözümleyicide birbirinin yerine kullanmıyorum.
 
@@ -343,7 +343,7 @@ Haneleri soldan sağa okuyorum. Kanalın eski kalanı $r_q$, gelen hane $d$ ise 
 
 $0\le r_q<q$ ve $0\le d\le7$ olduğundan $0\le t_q\le8q-1$. Kadranda bütün büyük sayı dolaşmıyor. Yalnız küçük kalan dolaşıyor. Yedi kanal aynı haneyi bağımsız olarak okuyabiliyor. $q=7$ kanalında $8\equiv1\pmod7$. Bu kanalda hane toplamının 7’ye göre kalanını okuyorum. $q=3$ kanalında $8\equiv-1\pmod3$. Ağırlıklar işaret değiştiriyor. $q=2$ kanalında son bit yeterli.
 
-![Şekil 3. 360 sayısının 550 sekizlik haneleriyle yüklenmesi. Her karede yedi kanalın eski ve yeni kalanını hesapladım.](figures/hunter0_kalan_360.svg)
+![Şekil 3. 360 sayısının 550 sekizlik haneleriyle yüklenmesi. Her karede yedi kanalın eski ve yeni kalanını hesapladım.](figures/hunter/hunter0_kalan_360.svg)
 
 Son karede kalanları sırasıyla $(0,0,0,3,8,9,3)$ buldum. Bu, 360'ın 2, 3 ve 5'e bölündüğünü söylüyor. Üslerin kaç olduğunu henüz söylemiyor. Bir kalan sıfırı ile bir üs sayacını aynı hücre gibi okumuyorum.
 
@@ -353,9 +353,9 @@ Aynı $t$ değerinden bölüm hanesini $h=\lfloor t/q\rfloor$ alıyorum. Yeni ka
 
 $360=550_8$ sayısını 2 kanalından geçirince bölüm haneleri $2,6,4$ çıktı. $264_8=180$. Son kalan sıfır. $45=55_8$ sayısını 3 kanalından geçirince $17_8=15$ çıktı. Bölümdeki baş sıfırları saklamak zorunlu değil. Sonraki aşamaya geçerken sayısal değeri korumam yeterli.
 
-![Şekil 4. 360'ın 2 kanalından geçişi. Tur sayısını bölüm hanesi olarak okudum.](figures/hunter0_bolum_360_2.svg)
+![Şekil 4. 360'ın 2 kanalından geçişi. Tur sayısını bölüm hanesi olarak okudum.](figures/hunter/hunter0_bolum_360_2.svg)
 
-![Şekil 5. 45'in 3 kanalından geçişi. Aynı kural kalan ve bölümü birlikte üretti.](figures/hunter0_bolum_45_3.svg)
+![Şekil 5. 45'in 3 kanalından geçişi. Aynı kural kalan ve bölümü birlikte üretti.](figures/hunter/hunter0_bolum_45_3.svg)
 
 #### 4.2.4 Üs sayacı ve elde
 
@@ -369,7 +369,7 @@ $3^{14}=4782969=22175571_8$ örneğinde 3 kanalından on dört kez geçtim. Sonu
 
 #### 4.2.5 Kod, sınama ve farkı
 
-Akan sayaç çekirdeği tek kat asal ayrışımı yapıyor ve üsleri sekizlik sayaç olarak tutuyor. Aynı çekirdekte sekizlik büyük tamsayı aritmetiği de var. 25 Ekim 2026'da yeniden çalıştırdım. $1\le N\le2^{24}$ aralığındaki 16.777.216 girdide geri kurma farkı ve bağımsız elekle uyuşmazlık sıfır çıktı. Yüz bin rastgele çiftte, en çok 200 sekizlik haneye kadar, toplama, çıkarma, çarpma ve tam bölmenin hata sayaçları da sıfır çıktı. Sınama: [hunter_cekirdek](https://github.com/JamesAugustus/ctcpu-hunter).
+Akan sayaç çekirdeği tek kat asal ayrışımı yapıyor ve üsleri sekizlik sayaç olarak tutuyor. Aynı çekirdekte sekizlik büyük tamsayı aritmetiği de var. 25 Ekim 2026'da yeniden çalıştırdım. $1\le N\le2^{24}$ aralığındaki 16.777.216 girdide geri kurma farkı ve bağımsız elekle uyuşmazlık sıfır çıktı. Yüz bin rastgele çiftte, en çok 200 sekizlik haneye kadar, toplama, çıkarma, çarpma ve tam bölmenin hata sayaçları da sıfır çıktı. Sınama: [hunter_cekirdek](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/01_RESOLVER/hunter_cekirdek).
 
 Bu tarama katlı merdiven kodunu sınamıyor. Akan sayaçta alt satıra taşınan şey üssün hanesi. Merdivende ise işlenmekte olan değerin sekize bölünmüş kısmı aşağı iniyor. İkisini aynı test sonucu altında birleştirmedim.
 
@@ -389,7 +389,7 @@ $p=13$ ve $M=8191$ için $37634=4\cdot8192+4866$. Katlamadan $4+4866=4870$ çık
 
 #### 4.3.3 Kod, sınama ve farkı
 
-Kaynakta $p=13,31,61,127,521,4096$ için Python sınamaları kayıtlı. Bu altı modülde katlama örneklerini 25 Ekim 2026'da yeniden hesapladım. Sıfır, modülün kendisi ve modülden uzun değerleri doğrudan kalanla karşılaştırdım. Hata çıkmadı. Bu altı modüllü denetimin ayrı kaydı bu pakette bulunmuyor. Paketteki [test ve komut](https://github.com/JamesAugustus/ctcpu-hunter), $p=13,31,61,127,521$ değerlerini kapsıyor.
+Kaynakta $p=13,31,61,127,521,4096$ için Python sınamaları kayıtlı. Bu altı modülde katlama örneklerini 25 Ekim 2026'da yeniden hesapladım. Sıfır, modülün kendisi ve modülden uzun değerleri doğrudan kalanla karşılaştırdım. Hata çıkmadı. Bu altı modüllü denetimin ayrı kaydı bu pakette bulunmuyor. Paketteki [test ve komut](https://github.com/JamesAugustus/ctcpu-hunter/blob/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/11_DEX_ARASTIRMALARI/hunter_stream026_9dd5af2c/TEST_TR.md), $p=13,31,61,127,521$ değerlerini kapsıyor.
 
 Bu biçim yedi küçük asalın üssünü bulmuyor. Tek bir büyük modül için kalanı buluyor. $p=4096$ seçimi de bir asallık iddiası değil. Katlama eşitliği için $p$'nin asal olması gerekmiyor.
 
@@ -465,7 +465,7 @@ Bu ilk sürüm her yüklemede çalışıyordu. 29 Ağustos tarihli sade Resolver
 
 #### 4.6.3 Kod, sınama ve farkı
 
-Resolver emülatörünü 25 Ekim 2026'da yeniden çalıştırdım. $0\le N<2^{24}$ ve yedi asal için 117.440.512 kalan karşılaştırmasında hata çıkmadı. $1\le N<2^{24}$ aralığındaki 16.777.215 geri kurmada hata çıkmadı. Üs doğruluğu, rough içinde küçük asal kalmaması ve bütün 2'ler soyulduktan sonra artığın tek olması denetimleri geçti. Sınama: [resolver_emulator](https://github.com/JamesAugustus/ctcpu-hunter).
+Resolver emülatörünü 25 Ekim 2026'da yeniden çalıştırdım. $0\le N<2^{24}$ ve yedi asal için 117.440.512 kalan karşılaştırmasında hata çıkmadı. $1\le N<2^{24}$ aralığındaki 16.777.215 geri kurmada hata çıkmadı. Üs doğruluğu, rough içinde küçük asal kalmaması ve bütün 2'ler soyulduktan sonra artığın tek olması denetimleri geçti. Sınama: [resolver_emulator](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/01_RESOLVER/resolver_emulator).
 
 Bu sürüm $rc$'yi düz taşıyor. Artığı katlara indirmek kodun yaptığı iş değil. Çıktıda görünen çevrim satırları emülatörün model hesabı. Ölçülmüş saat süresi olarak kullanmadım.
 
@@ -493,9 +493,9 @@ $s_k$ o katın smooth çarpımı. $a_{k+1}$ inişte kesilen hane. Haneyi inilen 
 
 $2124=4114_8$ için birinci katta $2^2\cdot3^2$ soydum. 59 kaldı. $59=8\cdot7+3$ olduğundan ikinci kata 7 indirdim. İkinci katta 7 kanalını bir kez soydum. Geri kurduğum eşitlik $2124=2^2\cdot3^2(8\cdot7+3)$.
 
-![Şekil 6a. 2124'ün ilk katında soyulan çarpım ve kalan değer.](figures/hunter0_merdiven_2124a.svg)
+![Şekil 6a. 2124'ün ilk katında soyulan çarpım ve kalan değer.](figures/hunter/hunter0_merdiven_2124a.svg)
 
-![Şekil 6b. Son haneyi keserek ikinci kata iniş ve aşağıdan yukarıya geri kurma.](figures/hunter0_merdiven_2124b.svg)
+![Şekil 6b. Son haneyi keserek ikinci kata iniş ve aşağıdan yukarıya geri kurma.](figures/hunter/hunter0_merdiven_2124b.svg)
 
 Üs hücresi dolunca da kalan değer iniyor. $3^{10}=3^7(8\cdot3+3)=59049$. Burada ikinci kattaki 3 üssünü birinci kattakine doğrudan eklemiyorum. Arada sekizle çarpma ve üç ekleme var.
 
@@ -522,7 +522,7 @@ Bu çift görev ancak bütün 2'ler soyulmuşsa kalan tek olur gerekçesine daya
 
 Kalanı, bölümü ve üs sayımını gözümün önüne getirmek için dişli benzetmesini kullandım. Her asalın $q$ dişli bir kadranı var. İbrenin durduğu çentik kalan. Yoklama kolu sıfır çentiğine bakıyor. Bölünme varsa kol iniyor. Bölüm akışı yeni değeri taşıyor. Üs çarkı bir diş ilerliyor. Bütün küçük asallar bittikten sonra tek katın artığı $rc$ tamburunda kalıyor.
 
-![Şekil 7. 360 soyulduktan sonra üs çarkları ve rc tamburu. Artık 1 olduğu için kalan ibrelerini 1 çentiğinde çizdim.](figures/hunter0_cark_360.svg)
+![Şekil 7. 360 soyulduktan sonra üs çarkları ve rc tamburu. Artık 1 olduğu için kalan ibrelerini 1 çentiğinde çizdim.](figures/hunter/hunter0_cark_360.svg)
 
 Kadran $r$ çentiğindeyken $7r+d$ diş daha döndürüyorum. Başlangıç konumu da katılınca toplam $8r+d$ oluyor. Sıfırdan geçiş sayısı bölüm hanesi. Durduğu çentik yeni kalan. $360/2$ için sıfır geçişleri $2,6,4$. Bu üç sayıyı yan yana sekizlik bölüm olarak okuyorum.
 
@@ -532,9 +532,9 @@ Kadran $r$ çentiğindeyken $7r+d$ diş daha döndürüyorum. Başlangıç konum
 
 $256=2^8$ örneğinde her bölünmeden sonra üssü artırdım. Yedinci bölünmede ilk çark 7 oldu. Sekizinci bölünmede ilk çark sıfıra döndü. Elde pimi ikinci çarkı 1 yaptı. Düşükten yükseğe $(0,1,0,0)$ okudum. Bu üs sekizdir.
 
-![Şekil 8a. 256'nın ilk bölünmeleri. Soyulan değerle kalan değerin çarpımını korudum.](figures/hunter0_elde_256a.svg)
+![Şekil 8a. 256'nın ilk bölünmeleri. Soyulan değerle kalan değerin çarpımını korudum.](figures/hunter/hunter0_elde_256a.svg)
 
-![Şekil 8b. Sekizinci bölünmede ilk çarkın sıfıra dönmesi ve ikinci çarka elde geçmesi.](figures/hunter0_elde_256b.svg)
+![Şekil 8b. Sekizinci bölünmede ilk çarkın sıfıra dönmesi ve ikinci çarka elde geçmesi.](figures/hunter/hunter0_elde_256b.svg)
 
 #### 4.8.3 Dişli modelinde kat inişinin yeri
 
@@ -550,7 +550,7 @@ Kadran ve sayaç anlatımı çalışan tek kat çekirdeğine karşılık geliyor
 | $rc$ | İlk rough veya son işlenmemiş artık adları kullanılmış | Tek kat için son rough açık. Katlı biçimde hangi artığın kalıcı tutulacağı açık |
 | Tetik | 30 Haziran sürümünde yükleme | 29 Ağustos kartında ilk çarpımsal işlem. Güncel tembel yol bunu kullanıyor |
 
-25 Ekim 2026'da yeniden çalıştırdım. [resolver_emulator](https://github.com/JamesAugustus/ctcpu-hunter) ve [hunter_cekirdek](https://github.com/JamesAugustus/ctcpu-hunter) tam sınamalarında hata çıkmadı. Ayrı bir örnek programında sekizlik akış eşitliklerini, katlama kapılarını, üs kodlarını ve merdiven geri kurmalarını denedim. Şekillerdeki her değer bu programın hesabıdır. Katlı merdivenin genel kodu ve FPGA ölçümü bu çalıştırmada yok.
+25 Ekim 2026'da yeniden çalıştırdım. [resolver_emulator](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/01_RESOLVER/resolver_emulator) ve [hunter_cekirdek](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/01_RESOLVER/hunter_cekirdek) tam sınamalarında hata çıkmadı. Ayrı bir örnek programında sekizlik akış eşitliklerini, katlama kapılarını, üs kodlarını ve merdiven geri kurmalarını denedim. Şekillerdeki her değer bu programın hesabıdır. Katlı merdivenin genel kodu ve FPGA ölçümü bu çalıştırmada yok.
 
 ### 5. Çarpma yöntemleri
 
@@ -570,7 +570,7 @@ Yedi üs toplamı birbirinden bağımsız. Bir kanaldaki toplama başka asalın 
 
 $12=2^2\cdot3$ ile $15=3\cdot5$ sayısını çarptım. 2 kanalında $2+0=2$, 3 kanalında $1+1=2$, 5 kanalında $0+1=1$ buldum. Öteki üsler sıfır kaldı. Sonuç $2^2\cdot3^2\cdot5=180$.
 
-![Şekil 9. 12 ile 15'in çarpımı. Her kanalın girdi ve sonuç üssünü ayrı hesapladım.](figures/hunter0_carpma.svg)
+![Şekil 9. 12 ile 15'in çarpımı. Her kanalın girdi ve sonuç üssünü ayrı hesapladım.](figures/hunter/hunter0_carpma.svg)
 
 Üsleri toplamadan önce gölge yoksa Resolver gerekiyor. Toplama veya çıkarma mantissayı değiştirdiyse eski gölgeyi geçerli saymıyorum. İlk çarpımsal işlemde yeni gölgeyi kuruyorum. Uzun bir çarpım zincirinde aynı ayrışımı tekrar tekrar yapmamak istedim.
 
@@ -622,7 +622,7 @@ $19=8\cdot2+3$ ve $23=8\cdot2+7$. Açılım $64\cdot4+8(2\cdot7+2\cdot3)+3\cdot7
 
 #### 5.3.4 Kod ve sınama
 
-Rough geri dönüş devresini 25 Ekim 2026'da yeniden çalıştırdım. İki sayının ikisi de rough olunca çarpım üs toplamaya inmez. O zaman sayıyı $A=8a+r_A$ diye sekizlik binoma açıyorum ve çarpımı $64ab+8(a\,r_B+b\,r_A)+r_A r_B$ olarak kaydırma ve küçük toplamalarla buluyorum. Beş milyon çiftte bu açılım doğrudan geniş tamsayı çarpımıyla aynı çıktı. Hata sayacı sıfır, dar çarpanın görülen en büyük değeri 7. Sınama: [rough_fallback_devre_test](https://github.com/JamesAugustus/ctcpu-hunter).
+Rough geri dönüş devresini 25 Ekim 2026'da yeniden çalıştırdım. İki sayının ikisi de rough olunca çarpım üs toplamaya inmez. O zaman sayıyı $A=8a+r_A$ diye sekizlik binoma açıyorum ve çarpımı $64ab+8(a\,r_B+b\,r_A)+r_A r_B$ olarak kaydırma ve küçük toplamalarla buluyorum. Beş milyon çiftte bu açılım doğrudan geniş tamsayı çarpımıyla aynı çıktı. Hata sayacı sıfır, dar çarpanın görülen en büyük değeri 7. Sınama: [rough_fallback_devre_test](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/04_CARPMA_BOLME/rough_fallback_devre_test).
 
 Bu çalıştırmada rough içeren iki operandın birlikte geldiği çift sayısı 4.960.826 oldu. Toplam beş milyon çiftin yaklaşık yüzde 99,2'si. Başka girdi dağılımıyla çalışan ana çarpma emülatöründe oran yüzde 96,6 çıktı. Bu oranları bütün sayılara ait sabit oran gibi kullanmıyorum.
 
@@ -695,7 +695,7 @@ Ana çarpma emülatörünün çıktı metninde eski taban 10 POW açıklaması h
 
 Çarpma emülatöründe iki operandı da rough içeren 19.327.807 çift çıktı. Payda 20 milyon çift. Gölgenin yararı hakkında bu dağılımı sakladım. Smooth çarpımlarda üs işlemi küçük kalıyor. Rough çarpımda ek iş var. Alan, enerji ve saat kazancı için devre ölçümü yapmadım.
 
-Bu bölümdeki örnekleri ve şekil değerlerini aynı doğrulama programı hesapladı. Sınamalar: [mul_div_emulator](https://github.com/JamesAugustus/ctcpu-hunter), [kaskad_uctan_uca_test](https://github.com/JamesAugustus/ctcpu-hunter) ve [rough_fallback_devre_test](https://github.com/JamesAugustus/ctcpu-hunter).
+Bu bölümdeki örnekleri ve şekil değerlerini aynı doğrulama programı hesapladı. Sınamalar: [mul_div_emulator](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/04_CARPMA_BOLME/mul_div_emulator), [kaskad_uctan_uca_test](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/04_CARPMA_BOLME/kaskad_uctan_uca_test) ve [rough_fallback_devre_test](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/04_CARPMA_BOLME/rough_fallback_devre_test).
 
 ### 6. Bölme yöntemleri
 
@@ -713,7 +713,7 @@ Yedi kanalda üsleri ayrı ayrı çıkarıyorum. Smooth iki sayı için bütün 
 
 $360=2^3\cdot3^2\cdot5$ ve $12=2^2\cdot3$. Üs farklarını $(1,1,1,0,0,0,0)$ buldum. Sonuç $2\cdot3\cdot5=30$. Rough oranı da $1/1$ olduğu için başka iş kalmadı.
 
-![Şekil 10. 360'ı 12'ye bölerken yedi kanaldaki üs farkları.](figures/hunter0_bolme.svg)
+![Şekil 10. 360'ı 12'ye bölerken yedi kanaldaki üs farkları.](figures/hunter/hunter0_bolme.svg)
 
 Tam bölmeyi kabul eden çekirdekte $A=BX$ kurup sonra $A/B=X$ denedim. Tam bölünmeyen bir girdiyi zorla kesip tamsayı sonuç gibi göstermiyorum. Kesir destekleyen katmana geçiyorum veya o komutun sözleşmesine göre reddediyorum. Bu iki davranış farklı emülatörlerin kapsamına ait.
 
@@ -723,7 +723,7 @@ Tam bölmeyi kabul eden çekirdekte $A=BX$ kurup sonra $A/B=X$ denedim. Tam böl
 
 $12/8$ işleminde 2 kanalında $2-3=-1$ çıktı. 3 kanalında $1-0=1$ kaldı. Matematiksel ifade $2^{-1}3=3/2$. Donanımda negatif üs hücresi saklamıyorum. Eksik 2 çarpanını ayrı payda kaydına geçiriyorum.
 
-![Şekil 11. 12 bölü 8 işlemindeki negatif üs farkı. Farkı payda çarpanına çevirdim.](figures/hunter0_kesir.svg)
+![Şekil 11. 12 bölü 8 işlemindeki negatif üs farkı. Farkı payda çarpanına çevirdim.](figures/hunter/hunter0_kesir.svg)
 
 Pay ve payda ayrı registerlarda duruyor. Payda tarafını ters türle okuyorum. Üs hücreleri sıfır veya pozitif. İşaret de tür bilgisiyle birlikte taşınıyor. Bu temsil bir yaklaşık sayı üretmiyor. $3/2$ çifti hangi hassasiyetle ekrana yazarsam yazayım kendi içinde kesin kalıyor.
 
@@ -731,7 +731,7 @@ Pay ve payda ayrı registerlarda duruyor. Payda tarafını ters türle okuyorum.
 
 İki taraftaki aynı küçük asalın ortak üssünü çıkarabiliyorum. Payda bire inerse çift kapanabiliyor. Rough taraflar için genel çarpanlara ayırmayı zorunlu tutmadım. 12 Temmuz 2026 tarihli çarpma ve bölme kaydında çift rough için otomatik genel sadeleştirme yapmayan tembel politika var. Gerekirse oranı sadeleştirmeden doğru değeriyle taşıyorum.
 
-Kesir emülatörü küçük çarpan temizliği ve kendi sadeleşme çağrılarını içeriyor. Çıktısındaki çağrı sayısını bütün rough çiftleri için genel EBOB donanımı var diye yorumlamıyorum. Eski modelin register çifti ve bayrak adlarının güncel Hunter yerleşimine bağlanması açık. Sınama: [kesir_emulator](https://github.com/JamesAugustus/ctcpu-hunter).
+Kesir emülatörü küçük çarpan temizliği ve kendi sadeleşme çağrılarını içeriyor. Çıktısındaki çağrı sayısını bütün rough çiftleri için genel EBOB donanımı var diye yorumlamıyorum. Eski modelin register çifti ve bayrak adlarının güncel Hunter yerleşimine bağlanması açık. Sınama: [kesir_emulator](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/04_CARPMA_BOLME/kesir_emulator).
 
 #### 6.3 POW'a kesin emilim
 
@@ -844,7 +844,7 @@ Açma belgesi ile karekök kaydı aynı seçim fikrini paylaşsa da 01 ve 10 kod
 
 Genel bölüm emülatörünün sınaması ile pay payda çiftinin sınaması aynı şey değil. İlki asal üs ve rough oranının sayısal değerini denetliyor. İkincisi çiftin korunması, POW, mod, karantina ve taşma davranışlarını da deniyor. Çıkış kodu sıfır olmasına bakmakla yetinmedim. Hata ve başarısızlık sayaçlarını da okudum.
 
-Örneklerin akış eşitlikleri, sabit üç bölmesi, tekrar çıkarma sonucu, POW tamamlaması ve aday kapıları doğrulama programında hesaplandı. Bu sınamalar yeni bir genel bölücü devresi ya da ortak ISA yerleşimi ölçümü değil. Sınama: [kesir_emulator](https://github.com/JamesAugustus/ctcpu-hunter).
+Örneklerin akış eşitlikleri, sabit üç bölmesi, tekrar çıkarma sonucu, POW tamamlaması ve aday kapıları doğrulama programında hesaplandı. Bu sınamalar yeni bir genel bölücü devresi ya da ortak ISA yerleşimi ölçümü değil. Sınama: [kesir_emulator](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/04_CARPMA_BOLME/kesir_emulator).
 
 ### 7. Karekök yöntemleri
 
@@ -900,7 +900,7 @@ $59=111011_2$. Bit çiftleri soldan sağa $11,10,11$. İlk çiftte artık adayı
 | 2 | 2 | 10 | 5 | 1 | 3 | 5 |
 | 3 | 3 | 23 | 13 | 1 | 7 | 10 |
 
-![Şekil 12. 59 için üç ikili hücreyi hesapladım. Son kök hanesi 7, artık 10.](figures/hunter0_kok_59.svg)
+![Şekil 12. 59 için üç ikili hücreyi hesapladım. Son kök hanesi 7, artık 10.](figures/hunter/hunter0_kok_59.svg)
 
 Her tam adımda işlenmiş önek $R^2+U$ olarak geri kuruluyor. Sonunda $59=7^2+10$. Ayrıca $7^2\le59<8^2$. Bu iki eşitlik kökün tam kısmını ve artığı bağımsız denetliyor.
 
@@ -957,9 +957,9 @@ $x_0=0$ ile başladım. $x_{n+1}=10/(14+x_n)$ yazıp her adımda $7+x_n$ değeri
 | 6 | $9187549/1196117$ | $7{,}681145740759$ | $7{,}109\cdot10^{-9}$ |
 | 7 | $67441873/8780184$ | $7{,}681145748198$ | $3{,}298\cdot10^{-10}$ |
 
-![Şekil 13a. Sürekli kesrin ilk dört yaklaşımını tam kesirle hesapladım.](figures/hunter0_cf_59a.svg)
+![Şekil 13a. Sürekli kesrin ilk dört yaklaşımını tam kesirle hesapladım.](figures/hunter/hunter0_cf_59a.svg)
 
-![Şekil 13b. Sonraki üç yaklaşım ve mutlak hataları.](figures/hunter0_cf_59b.svg)
+![Şekil 13b. Sonraki üç yaklaşım ve mutlak hataları.](figures/hunter/hunter0_cf_59b.svg)
 
 Sabit nokta $x=\sqrt p-t$. $t\ge1$ ve tam kare olmayan pozitif tamsayı için $0<x<1$. Yineleme fonksiyonu azalan. Ardışık yaklaşımlar kökün iki tarafına geçiyor. Hata bağıntısı $x_{n+1}-x=-x(x_n-x)/(2t+x_n)$. Başlangıç negatif değil ve bütün paydalar pozitif. Bu örnekte hata çarpanı $0<x/(2t+x_n)<1$ koşulunu sağladığı için hata küçülüyor. Tam karede artık sıfır ve kök zaten tam. Sıfırı doğrudan sıfır olarak ayırıyorum. $0<p<1$ için $t=0$ seçip aynı sıfır başlangıcını kullanmıyorum. Önce ölçekleme veya başka bir başlangıç gerekiyor.
 
@@ -995,7 +995,7 @@ Sürekli kesirde beş tekrardan sonraki mutlak hata yaklaşık $1{,}532\cdot10^{
 
 #### 7.7 Kod ve yeniden çalıştırma
 
-Karekök emülatörünü 25 Ekim 2026'da yeniden derleyip çalıştırdım. Sınama: [karekok_emulator](https://github.com/JamesAugustus/ctcpu-hunter).
+Karekök emülatörünü 25 Ekim 2026'da yeniden derleyip çalıştırdım. Sınama: [karekok_emulator](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/05_KAREKOK/karekok_emulator).
 
 | Sınama | Kapsam | Sonuç |
 |---|---|---|
@@ -1112,7 +1112,7 @@ Tanım $N\equiv\sum d_k\pmod{b-1}$ ve $N\equiv\sum(-1)^kd_k\pmod{b+1}$. İşaret
 
 #### 8.4.3 Asal kanalda tur
 
-Tanım $t=\operatorname{ord}_q(2)$, tek asal $q$ için ikinin çarpımsal devri. $q\mid2^p-1$ ancak ve ancak $t\mid p$. Buna 3 ve 4 Eylül 2026'da tur yasası dedim, araştırınca bilinen sonuç olduğunu gördüm. İlgili eserleri [günlüğün kaynakçasında](https://github.com/JamesAugustus/ctcpu-hunter) listeliyorum. $q=7$ için $2^3\equiv1\pmod7$, tur 3. $2^{83}-1$ sayısının mod 7 kalanı $2^{83\bmod3}-1=3$.
+Tanım $t=\operatorname{ord}_q(2)$, tek asal $q$ için ikinin çarpımsal devri. $q\mid2^p-1$ ancak ve ancak $t\mid p$. Buna 3 ve 4 Eylül 2026'da tur yasası dedim, araştırınca bilinen sonuç olduğunu gördüm. İlgili eserleri [günlüğün kaynakçasında](https://github.com/JamesAugustus/ctcpu-hunter/blob/e65df34d25093974df97b1922d52efb1cdcea84f/tr/md/YOL.md#literat%C3%BCr) listeliyorum. $q=7$ için $2^3\equiv1\pmod7$, tur 3. $2^{83}-1$ sayısının mod 7 kalanı $2^{83\bmod3}-1=3$.
 
 $t$ tekse blok genişliği $t$ ile düz katlama yapıyorum. $t$ çiftse tek asal modülde $2^{t/2}\equiv-1\pmod q$ ve blok genişliği $t/2$ ile işaretli katlama yapabiliyorum. Bu kanal mekanizmasını Eylül 2026'da yazdım. $q=5$ için tur 4, blok 2. $2^2\equiv-1\pmod5$. Asal olmayan keyfi modülde çift turdan aynı eksi bir sonucunu koşulsuz çıkarmıyorum.
 
@@ -1630,7 +1630,7 @@ Kaynak olarak 9 ile 12 Temmuz 2026 tarihli ISA metninin 1 Ekim tarihli metin ç�
 
 Güncel çekirdekte sekiz register, düz aritmetik yolu, gölge aritmetik yolu, Resolver ve kontrol görevleri bulunuyor.
 
-![Şekil 14. Sekiz register ve iki aritmetik yolun çekirdekteki görev ilişkisi. Kontrolün fiziksel yerleşimi ve saat çizelgesi açık.](figures/hunter0_cekirdek.svg)
+![Şekil 14. Sekiz register ve iki aritmetik yolun çekirdekteki görev ilişkisi. Kontrolün fiziksel yerleşimi ve saat çizelgesi açık.](figures/hunter/hunter0_cekirdek.svg)
 
 | Parça | Görev | Geçerlilik ilişkisi |
 |---|---|---|
@@ -1645,7 +1645,7 @@ Kontrolün görevi ile bit düzeyinde tamamlanmış kontrol devresini ayırdım.
 
 #### 12.2 Komutun yolculuğu
 
-![Şekil 15. Yürütmenin görev sırası. Gölge gerektiren yol, geçerli gölge yoksa Resolver'a başvurur. Kutular birer işlevdir, ölçülmüş çevrim değildir.](figures/hunter0_yurutme.svg)
+![Şekil 15. Yürütmenin görev sırası. Gölge gerektiren yol, geçerli gölge yoksa Resolver'a başvurur. Kutular birer işlevdir, ölçülmüş çevrim değildir.](figures/hunter/hunter0_yurutme.svg)
 
 Önce komutu getiririm. İşlem ailesini ve modunu okurum. Kaynak ve hedef register'ları seçerim. Sonra aritmetik yolunu seçerim. Gölge gerekiyorsa ve hazır değilse Resolver'ı çalıştırırım. İşlemin sonucu hedefe yazılır. Değişen yüzün öteki yüz üzerindeki etkisini de kaydederim.
 
@@ -1860,36 +1860,36 @@ Test arşivinden 30 çalıştırma seçtim. Her testin kendi açıklamasındaki 
 
 | İddia ve test | Kapsam | Sonuç | Süre, saniye |
 |---|---|---|---:|
-| Akan sayaç, geri kurma ve tembel gölge. [hunter_cekirdek](https://github.com/JamesAugustus/ctcpu-hunter) | $1..2^{24}$ geri kurma. 100000 çiftte dört işlem. Bağımsız geniş tamsayı denetçisi. Sıfır hata | GECTI | 11,830 |
-| Akan sayaç yürütme izi. [hunter_iz](https://github.com/JamesAugustus/ctcpu-hunter) | $744=1350_8$ geri kurma birebir | GECTI | 0,314 |
-| Horner kalan akışı ve ilk ayrışım. [resolver_emulator](https://github.com/JamesAugustus/ctcpu-hunter) | 24 bit alan ve yedi kanal. Ayrışım geri dönüşü. Ek üs ve rough taramalarında sıfır hata | GECTI | 2,066 |
-| Tarihsel N6 merdiveninde çarpma. [golge_carpma](https://github.com/JamesAugustus/ctcpu-hunter) | 8386560 küçük çift, 5000000 büyük çift. Geniş sonuç ve küçük çarpım sınırı. Sıfır hata | GECTI | 6,322 |
-| Tarihsel gölge kabulü. [golge_emulator](https://github.com/JamesAugustus/ctcpu-hunter) | 23 kabul kontrolü geçti. Sıfır, çarpma, bölme, faktöriyel ve kök | GECTI | 0,214 |
-| Tarihsel N6 geri dönüş ve kayıt özeti. [golge_nihai](https://github.com/JamesAugustus/ctcpu-hunter) | $1..16777215$. Geri dönüş hatası, sığmayan sayı ve aynı özet sayısı sıfır | GECTI | 3,369 |
-| Ana gölge uygulaması. [test_golge_merdiven](https://github.com/JamesAugustus/ctcpu-hunter) | 24 bit geri dönüş. 8386560 küçük, 2000000 büyük çarpım. 999999 taşma ve 1000000 bölüm. Sıfır hata | GECTI | 7,424 |
-| Tarihsel N6 kapsamı. [test_tum_sayilar](https://github.com/JamesAugustus/ctcpu-hunter) | $1..16777215$. Geri dönüş ve sığmama sıfır. Rough kuyruğu dahil | GECTI | 3,669 |
-| Toplamalı üs taşması. [kaskad_uctan_uca_test](https://github.com/JamesAugustus/ctcpu-hunter) | $e=0..56$ sınır taraması. 3000000 çarpım, 2000000 bölüm. 28 üstünde taşma. Sıfır hata | GECTI | 0,815 |
-| Kesir ve karantina v1.4. [kesir_emulator](https://github.com/JamesAugustus/ctcpu-hunter) | 25 kabul kontrolü. 200000 rastgele zincir dahil. 25 OK, 0 FAIL | GECTI | 0,164 |
-| Karantinada sayı sızmaması. [kesir_v13_v14_kiyas](https://github.com/JamesAugustus/ctcpu-hunter) | 1000000 temiz ve 1000000 sıfıra bölmeli zincir. Temiz değer ve kilitli pay izi doğru | GECTI | 0,615 |
-| Üs aritmetiğiyle çarpma ve bölüm. [mul_div_emulator](https://github.com/JamesAugustus/ctcpu-hunter) | 20000000 çarpım, 10000000 tam ve 10000000 genel bölüm. Eski 28 sınırı. Sıfır hata | GECTI | 3,469 |
-| Kaydırma ve toplamayla çarpım. [multiply_add](https://github.com/JamesAugustus/ctcpu-hunter) | 65536 byte çifti, 128 geniş sınır, 4000 örnek, 26 geçersiz çağrı. PASS | GECTI | 0,064 |
-| Çarpma ve bölmenin somut örnekleri. [ornekler](https://github.com/JamesAugustus/ctcpu-hunter) | 41 örnek geçti. Smooth, rough, işaret, kesir ve sadeleşen zincir | GECTI | 0,114 |
-| Sekizlik ölçeğin kanonik biçimi. [pow_tam_tarama](https://github.com/JamesAugustus/ctcpu-hunter) | 134217728 durumda değer, idempotens ve yapı hatası sıfır | GECTI | 0,264 |
-| Rough çarpımda küçük işlem yolu. [rough_fallback_devre_test](https://github.com/JamesAugustus/ctcpu-hunter) | 5000000 çiftte geniş tamsayı çarpımıyla eşit. Temel küçük çarpım operandı en fazla 7 | GECTI | 0,965 |
-| Çarpım katsayısı ve elde. [test_gate_model](https://github.com/JamesAugustus/ctcpu-hunter) | Dört unittest geçti. Byte kareleri, ağırlıklı toplam, elde ve geçersiz girdiler | GECTI | 0,114 |
-| Sabit noktalı kök yaklaşımı. [frac_test](https://github.com/JamesAugustus/ctcpu-hunter) | 12 kök girdisi, beş çarpım ve sembolik sadeleşme. Sayısal kabul eşiği yok | OLCUM | 0,064 |
-| Kesin tamsayı karekök. [karekok_emulator](https://github.com/JamesAugustus/ctcpu-hunter) | 3001 tam kare, 200001 yöntem eşitliği, 1000001 floor koşulu, üç geniş sınır. Sıfır hata | GECTI | 0,114 |
-| Kök içinde ölçek. [kok_virgul_icinde_test](https://github.com/JamesAugustus/ctcpu-hunter) | 134217728 kanonik durum ve 10000000 kök çarpımı. Altı açma örneği. Sıfır hata | GECTI | 0,314 |
-| Yaklaşık kökün bağıl hatası. [test_dogruluk](https://github.com/JamesAugustus/ctcpu-hunter) | $2..16777215$. Beş yaklaşımın hata taraması. Kabul eşiği yok. Kesin kök satırı ölçülmüyor | OLCUM | 0,364 |
-| Kilit, pay izi ve yeni yükleme. [karantina_cift_demo](https://github.com/JamesAugustus/ctcpu-hunter) | Sıfıra bölmede kilit, iz birikimi, sıfır pay ayrımı ve LOAD temizliği. Sıfır hata | GECTI | 0,032 |
-| Yaklaşık sıfır ile tanımsız ayrımı. [tanimsiz_kodlama_test](https://github.com/JamesAugustus/ctcpu-hunter) | 6001 küçük değer, 24 bit bölen taraması. Eski kodda 4668 çakışma, yeni kodda sıfır | GECTI | 0,032 |
-| Tür ve ölçek kanonikliği. [tur_pow_tam_tarama](https://github.com/JamesAugustus/ctcpu-hunter) | 1073741824 durumda değer, idempotens ve yapı hatası sıfır. ISA bütünlüğü değil | GECTI | 4,771 |
-| Tür çarpımı, ters ve işaret. [tur_x_tur_test](https://github.com/JamesAugustus/ctcpu-hunter) | 22500 çarpım, 14400 bölüm, 150 işaret denemesi. Sıfır hata. Yardımcı cebirsel kayıt kullanılıyor | GECTI | 0,114 |
-| Günlük iddiaları. [journal_tests](https://github.com/JamesAugustus/ctcpu-hunter) | 22 kart. 15 HOLDS, 4 FAILS, 3 UNTESTED. Çalıştırma hatası sıfır. Ayrıntı aşağıda | OLCUM | 0,564 |
-| Rough dağılımı ve işlem maliyeti. [hunter_golge_vs_klasik_ad96e0c4](https://github.com/JamesAugustus/ctcpu-hunter) | 24 bit dağılım, 200000 çiftte model işlem sayıları. Donanım süresi ve güç ölçülmüyor | OLCUM | 0,715 |
-| İkilik kanal katlaması. [hunter_hunter_channel_fold_bb562e20](https://github.com/JamesAugustus/ctcpu-hunter) | 393216 kalan, 1681095 katlama değişmezi ve beş geçersiz girdi. PASS | GECTI | 0,565 |
-| Mersenne akış katlaması. [hunter_stream026_9dd5af2c](https://github.com/JamesAugustus/ctcpu-hunter) | $p=13,31,61,127,521$. Hücre 3,8,16 bit ve 2,3,4,8 satır. Doğrudan mod ile eşit | GECTI | 0,114 |
-| Katlama kapısının hata yakalaması. [hunter_test_hunter_channel_fold_32b15897](https://github.com/JamesAugustus/ctcpu-hunter) | Yedi unittest geçti. Tam tarama, iz değişmezi, geçersiz giriş ve bilerek yanlış kalan | GECTI | 0,865 |
+| Akan sayaç, geri kurma ve tembel gölge. [hunter_cekirdek](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/01_RESOLVER/hunter_cekirdek) | $1..2^{24}$ geri kurma. 100000 çiftte dört işlem. Bağımsız geniş tamsayı denetçisi. Sıfır hata | GECTI | 11,830 |
+| Akan sayaç yürütme izi. [hunter_iz](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/01_RESOLVER/hunter_iz) | $744=1350_8$ geri kurma birebir | GECTI | 0,314 |
+| Horner kalan akışı ve ilk ayrışım. [resolver_emulator](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/01_RESOLVER/resolver_emulator) | 24 bit alan ve yedi kanal. Ayrışım geri dönüşü. Ek üs ve rough taramalarında sıfır hata | GECTI | 2,066 |
+| Tarihsel N6 merdiveninde çarpma. [golge_carpma](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/02_MERDIVEN/golge_carpma) | 8386560 küçük çift, 5000000 büyük çift. Geniş sonuç ve küçük çarpım sınırı. Sıfır hata | GECTI | 6,322 |
+| Tarihsel gölge kabulü. [golge_emulator](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/02_MERDIVEN/golge_emulator) | 23 kabul kontrolü geçti. Sıfır, çarpma, bölme, faktöriyel ve kök | GECTI | 0,214 |
+| Tarihsel N6 geri dönüş ve kayıt özeti. [golge_nihai](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/02_MERDIVEN/golge_nihai) | $1..16777215$. Geri dönüş hatası, sığmayan sayı ve aynı özet sayısı sıfır | GECTI | 3,369 |
+| Ana gölge uygulaması. [test_golge_merdiven](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/02_MERDIVEN/test_golge_merdiven) | 24 bit geri dönüş. 8386560 küçük, 2000000 büyük çarpım. 999999 taşma ve 1000000 bölüm. Sıfır hata | GECTI | 7,424 |
+| Tarihsel N6 kapsamı. [test_tum_sayilar](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/02_MERDIVEN/test_tum_sayilar) | $1..16777215$. Geri dönüş ve sığmama sıfır. Rough kuyruğu dahil | GECTI | 3,669 |
+| Toplamalı üs taşması. [kaskad_uctan_uca_test](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/04_CARPMA_BOLME/kaskad_uctan_uca_test) | $e=0..56$ sınır taraması. 3000000 çarpım, 2000000 bölüm. 28 üstünde taşma. Sıfır hata | GECTI | 0,815 |
+| Kesir ve karantina v1.4. [kesir_emulator](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/04_CARPMA_BOLME/kesir_emulator) | 25 kabul kontrolü. 200000 rastgele zincir dahil. 25 OK, 0 FAIL | GECTI | 0,164 |
+| Karantinada sayı sızmaması. [kesir_v13_v14_kiyas](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/04_CARPMA_BOLME/kesir_v13_v14_kiyas) | 1000000 temiz ve 1000000 sıfıra bölmeli zincir. Temiz değer ve kilitli pay izi doğru | GECTI | 0,615 |
+| Üs aritmetiğiyle çarpma ve bölüm. [mul_div_emulator](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/04_CARPMA_BOLME/mul_div_emulator) | 20000000 çarpım, 10000000 tam ve 10000000 genel bölüm. Eski 28 sınırı. Sıfır hata | GECTI | 3,469 |
+| Kaydırma ve toplamayla çarpım. [multiply_add](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/04_CARPMA_BOLME/multiply_add) | 65536 byte çifti, 128 geniş sınır, 4000 örnek, 26 geçersiz çağrı. PASS | GECTI | 0,064 |
+| Çarpma ve bölmenin somut örnekleri. [ornekler](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/04_CARPMA_BOLME/ornekler) | 41 örnek geçti. Smooth, rough, işaret, kesir ve sadeleşen zincir | GECTI | 0,114 |
+| Sekizlik ölçeğin kanonik biçimi. [pow_tam_tarama](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/04_CARPMA_BOLME/pow_tam_tarama) | 134217728 durumda değer, idempotens ve yapı hatası sıfır | GECTI | 0,264 |
+| Rough çarpımda küçük işlem yolu. [rough_fallback_devre_test](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/04_CARPMA_BOLME/rough_fallback_devre_test) | 5000000 çiftte geniş tamsayı çarpımıyla eşit. Temel küçük çarpım operandı en fazla 7 | GECTI | 0,965 |
+| Çarpım katsayısı ve elde. [test_gate_model](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/04_CARPMA_BOLME/test_gate_model) | Dört unittest geçti. Byte kareleri, ağırlıklı toplam, elde ve geçersiz girdiler | GECTI | 0,114 |
+| Sabit noktalı kök yaklaşımı. [frac_test](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/05_KAREKOK/frac_test) | 12 kök girdisi, beş çarpım ve sembolik sadeleşme. Sayısal kabul eşiği yok | OLCUM | 0,064 |
+| Kesin tamsayı karekök. [karekok_emulator](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/05_KAREKOK/karekok_emulator) | 3001 tam kare, 200001 yöntem eşitliği, 1000001 floor koşulu, üç geniş sınır. Sıfır hata | GECTI | 0,114 |
+| Kök içinde ölçek. [kok_virgul_icinde_test](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/05_KAREKOK/kok_virgul_icinde_test) | 134217728 kanonik durum ve 10000000 kök çarpımı. Altı açma örneği. Sıfır hata | GECTI | 0,314 |
+| Yaklaşık kökün bağıl hatası. [test_dogruluk](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/05_KAREKOK/test_dogruluk) | $2..16777215$. Beş yaklaşımın hata taraması. Kabul eşiği yok. Kesin kök satırı ölçülmüyor | OLCUM | 0,364 |
+| Kilit, pay izi ve yeni yükleme. [karantina_cift_demo](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/06_TIPLER/karantina_cift_demo) | Sıfıra bölmede kilit, iz birikimi, sıfır pay ayrımı ve LOAD temizliği. Sıfır hata | GECTI | 0,032 |
+| Yaklaşık sıfır ile tanımsız ayrımı. [tanimsiz_kodlama_test](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/06_TIPLER/tanimsiz_kodlama_test) | 6001 küçük değer, 24 bit bölen taraması. Eski kodda 4668 çakışma, yeni kodda sıfır | GECTI | 0,032 |
+| Tür ve ölçek kanonikliği. [tur_pow_tam_tarama](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/06_TIPLER/tur_pow_tam_tarama) | 1073741824 durumda değer, idempotens ve yapı hatası sıfır. ISA bütünlüğü değil | GECTI | 4,771 |
+| Tür çarpımı, ters ve işaret. [tur_x_tur_test](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/06_TIPLER/tur_x_tur_test) | 22500 çarpım, 14400 bölüm, 150 işaret denemesi. Sıfır hata. Yardımcı cebirsel kayıt kullanılıyor | GECTI | 0,114 |
+| Günlük iddiaları. [journal_tests](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/07_GUNLUK_IDDIALARI/journal_tests) | 22 kart. 15 HOLDS, 4 FAILS, 3 UNTESTED. Çalıştırma hatası sıfır. Ayrıntı aşağıda | OLCUM | 0,564 |
+| Rough dağılımı ve işlem maliyeti. [hunter_golge_vs_klasik_ad96e0c4](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/09_CPU_ARITMETIGI/hunter_golge_vs_klasik_ad96e0c4) | 24 bit dağılım, 200000 çiftte model işlem sayıları. Donanım süresi ve güç ölçülmüyor | OLCUM | 0,715 |
+| İkilik kanal katlaması. [hunter_hunter_channel_fold_bb562e20](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/14_DEX_MATEMATIK_KAPILARI/hunter_hunter_channel_fold_bb562e20) | 393216 kalan, 1681095 katlama değişmezi ve beş geçersiz girdi. PASS | GECTI | 0,565 |
+| Mersenne akış katlaması. [hunter_stream026_9dd5af2c](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/11_DEX_ARASTIRMALARI/hunter_stream026_9dd5af2c) | $p=13,31,61,127,521$. Hücre 3,8,16 bit ve 2,3,4,8 satır. Doğrudan mod ile eşit | GECTI | 0,114 |
+| Katlama kapısının hata yakalaması. [hunter_test_hunter_channel_fold_32b15897](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/10_DEX_MODELLERI/hunter_test_hunter_channel_fold_32b15897) | Yedi unittest geçti. Tam tarama, iz değişmezi, geçersiz giriş ve bilerek yanlış kalan | GECTI | 0,865 |
 
 
 Tablodaki bütün çalıştırmaların tarihi 25 Ekim 2026.
@@ -1901,8 +1901,8 @@ Arşivden gelen sayımlara ek olarak yayın örneklerini ayrı hesapladım. Üç
 
 | İddia ve test | Kapsam | Sonuç | Süre, saniye |
 |---|---|---|---:|
-| Örneklerin sayısal doğruluğu. [ornekleri_dogrula](https://github.com/JamesAugustus/ctcpu-hunter) | 39046 kesin eşitlik kontrolü. Smooth sayımı, CRT, hane ağırlıkları, renk kümeleri ve rasyonel sürekli kesir yakınsakları | GECTI | 0,041213 |
-| Güncel sayaç sınırı. [sayac_siniri](https://github.com/JamesAugustus/ctcpu-hunter) | Yedi kanalda bütün sayaç değerleri. $2^{4095}$ geri kurma. Bir sonraki üs ve çarpımda ret. Rough tam bölme ve sıfıra bölme reddi | GECTI | 0,329562 |
+| Örneklerin sayısal doğruluğu. [ornekleri_dogrula](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/NIHAI_EK/ornekleri_dogrula) | 39046 kesin eşitlik kontrolü. Smooth sayımı, CRT, hane ağırlıkları, renk kümeleri ve rasyonel sürekli kesir yakınsakları | GECTI | 0,041213 |
+| Güncel sayaç sınırı. [sayac_siniri](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/NIHAI_EK/sayac_siniri) | Yedi kanalda bütün sayaç değerleri. $2^{4095}$ geri kurma. Bir sonraki üs ve çarpımda ret. Rough tam bölme ve sıfıra bölme reddi | GECTI | 0,329562 |
 
 
 Tablodaki bütün çalıştırmaların tarihi 25 Ekim 2026.
@@ -1942,7 +1942,7 @@ Günlük programı 0,564 saniyede bitti. Aşağıdaki journal_tests kartları ay
 
 Bütün kartlar 25 Ekim 2026 tarihli aynı günlük çalıştırmasına ait.
 
-KALDI olan kartları düzeltmedim. Baş renk iddiasında aynı baş hane hem asal hem bileşik sayı veriyor. Kısa elek iddiasında arama sınırı gerçek böleni dışarıda bırakıyor. İkinci derece ifade ve ters çevirme iddialarında doğrudan bileşik sonuç var. Test programı bu karşı örnekleri beklediği için başarılı çıkış veriyor. Sınama: [journal_tests](https://github.com/JamesAugustus/ctcpu-hunter).
+KALDI olan kartları düzeltmedim. Baş renk iddiasında aynı baş hane hem asal hem bileşik sayı veriyor. Kısa elek iddiasında arama sınırı gerçek böleni dışarıda bırakıyor. İkinci derece ifade ve ters çevirme iddialarında doğrudan bileşik sonuç var. Test programı bu karşı örnekleri beklediği için başarılı çıkış veriyor. Sınama: [journal_tests](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/07_GUNLUK_IDDIALARI/journal_tests).
 
 #### 14.5 Sürüm ve kapsam ayrımları
 
@@ -1983,7 +1983,7 @@ Bu koşularda fiziksel FPGA, optik kapı, güç, alan, saat frekansı, çok çek
 
 #### 14.8 Hücre ve mimari örneklerinin ek denetimi
 
-Hücre, register, taşma, tür, karantina ve komut örnekleri için ayrıca 49 denetim kümesi çalıştırdım. Altı renk kapısının 384 giriş çiftini küme işlemleriyle karşılaştırdım. Boyutları, üs kodlamalarını, merdiven geri kurmalarını, kesin kesirleri ve komut sözcüklerini hesapladım. Karantina ve tanımsız kodlama C programlarını ayrı çıktılarla yeniden çalıştırdım. Bu ek çalıştırmalar 25 Ekim 2026 tarihli. Hata bulmadım. Bunları yukarıdaki 30 çalıştırmanın sayısına ekleyip yeni bir bağımsız kanıt hacmi çıkarmadım. Bu 49 kümeye ait ayrı program ve kayıtlar bu pakette bulunmuyor. Paketteki [örnek testi ve komutu](https://github.com/JamesAugustus/ctcpu-hunter), beş renk kapısının 320 giriş çiftini denetliyor.
+Hücre, register, taşma, tür, karantina ve komut örnekleri için ayrıca 49 denetim kümesi çalıştırdım. Altı renk kapısının 384 giriş çiftini küme işlemleriyle karşılaştırdım. Boyutları, üs kodlamalarını, merdiven geri kurmalarını, kesin kesirleri ve komut sözcüklerini hesapladım. Karantina ve tanımsız kodlama C programlarını ayrı çıktılarla yeniden çalıştırdım. Bu ek çalıştırmalar 25 Ekim 2026 tarihli. Hata bulmadım. Bunları yukarıdaki 30 çalıştırmanın sayısına ekleyip yeni bir bağımsız kanıt hacmi çıkarmadım. Bu 49 kümeye ait ayrı program ve kayıtlar bu pakette bulunmuyor. Paketteki [örnek testi ve komutu](https://github.com/JamesAugustus/ctcpu-hunter/blob/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/NIHAI_EK/ornekleri_dogrula/TEST_TR.md), beş renk kapısının 320 giriş çiftini denetliyor.
 
 Renk kapısı tablolarını ve örnek hesaplarını ayrı bir doğrulama programı üretti. Şekillerin sayısal kutuları bu hesaplardan geliyor. Bu ayrı program bu pakette bulunmuyor.
 
@@ -2057,7 +2057,7 @@ Benim eğitim adayım, aynı sayının hane, asal üs ve tür biçimleri arasın
 
 #### 15.10 İşe yaramadığı yer ve ölçülecek sınır
 
-25 Ekim 2026'da yeniden çalıştırdığım pozitif 24 bit taramada $16777215$ sayının yalnız $15748$ tanesi seçilmiş asallardan bütünüyle oluştu. $16761467$ sayıda rough artık kaldı. Oran yaklaşık yüzde $99{,}9061$. Bağımsız olarak asal kuvvetlerinin çarpımlarını üreterek smooth sayısını tekrar saydım. Çarpma emülatörünün ayrı dağılımında $20000000$ çiftin $19327807$ tanesinde iki taraf da rough çıktı. Bu yüzde $96{,}639035$. İki oran farklı deneylere ait. Bütün rastgele dağılımlar için tek bir sabit değermiş gibi kullanmıyorum. [Tam alan taraması](https://github.com/JamesAugustus/ctcpu-hunter), [çarpma örneklemesi](https://github.com/JamesAugustus/ctcpu-hunter), bağımsız sayım.
+25 Ekim 2026'da yeniden çalıştırdığım pozitif 24 bit taramada $16777215$ sayının yalnız $15748$ tanesi seçilmiş asallardan bütünüyle oluştu. $16761467$ sayıda rough artık kaldı. Oran yaklaşık yüzde $99{,}9061$. Bağımsız olarak asal kuvvetlerinin çarpımlarını üreterek smooth sayısını tekrar saydım. Çarpma emülatörünün ayrı dağılımında $20000000$ çiftin $19327807$ tanesinde iki taraf da rough çıktı. Bu yüzde $96{,}639035$. İki oran farklı deneylere ait. Bütün rastgele dağılımlar için tek bir sabit değermiş gibi kullanmıyorum. [Tam alan taraması](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/02_MERDIVEN/test_tum_sayilar), [çarpma örneklemesi](https://github.com/JamesAugustus/ctcpu-hunter/tree/e65df34d25093974df97b1922d52efb1cdcea84f/TESTLER/HUNTER/04_CARPMA_BOLME/mul_div_emulator), bağımsız sayım.
 
 Tek bir rough çarpımda klasik donanım çarpıcısını daha hızlı yol olarak kabul ediyorum. Resolver, seri küçük çarpımlar ve geri açma ek iş getiriyor. Bunu ölçülmüş bir CTCPU donanım hız oranına çevirmiyorum. Toplama ağırlıklı işte, sürekli değişen rough girdide ve her adımda sayısal çıktı isteyen zincirde gölgeyi tutmanın yararı azalıyor. Sembolik kök de sayısal basamaklar istendiğinde açılmak zorunda. Sürekli kesrin sonlu yakınsağı kesin bir rasyonel sayı olabilir. İrrasyonel kökün tam değeri değildir.
 
@@ -2163,7 +2163,7 @@ Sayıları, görevleri ve denetleyici durumunu ortak bir adres düzeninde göste
 
 Bu adresler kayıt etiketidir, gerçek RAM bayt adresi değildir. Aritmetik işçi yordamlarında yapılır. Denetleyici hangi işin hazır ve hangisinin tamamlanmış olduğunu izler. Örnekteki tamamlanan iş sayacı bir program sayacı veya zaman ölçümü değildir. İşçi sayısının üç olması da üç fiziksel çekirdek çalıştığı anlamına gelmez. C programı sıralı bir yazılım modelidir.
 
-Bu modeli ve bütün testlerini [sade açıklamada](https://github.com/JamesAugustus/ctcpu-hunter) adım adım anlattım. [C kaynak dosyası](https://github.com/JamesAugustus/ctcpu-hunter) ve [çalıştırma betiği](https://github.com/JamesAugustus/ctcpu-hunter) depodadır.
+Bu modeli ve bütün testlerini [sade açıklamada](https://github.com/JamesAugustus/ctcpu-hunter/blob/e65df34d25093974df97b1922d52efb1cdcea84f/tr/md/CTCPU_PARCALAR/PCCPU/PCCPU_C_TESTI_ACIKLAMA.md) adım adım anlattım. [C kaynak dosyası](https://github.com/JamesAugustus/ctcpu-hunter/blob/e65df34d25093974df97b1922d52efb1cdcea84f/kod/PCCPU/pccpu_address_model.c) ve [çalıştırma betiği](https://github.com/JamesAugustus/ctcpu-hunter/blob/e65df34d25093974df97b1922d52efb1cdcea84f/kod/PCCPU/calistir.sh) depodadır.
 
 ### Matematiksel dayanak: Pascal satırı ve N(p)
 
@@ -2388,15 +2388,15 @@ Matematiksel çalışma [pascal-mersenne-rows](https://github.com/JamesAugustus/
 
 ### 8. Uygulama durumu ve açık kararlar
 
-[PCCPU C örneği](https://github.com/JamesAugustus/ctcpu-hunter), üretici ve toplayıcı görevlerinin bağımlılığını sınar. İç hesapta klasik C(n,j) katsayıları kullanılır. 60.353 kontrol bu mevcut programa aittir. CTMemTensor'ın merkez adres çözücüsü, seçilebilir adresleme kipleri veya RAM protokolü bu C programında henüz uygulanmamıştır.
+[PCCPU C örneği](https://github.com/JamesAugustus/ctcpu-hunter/blob/e65df34d25093974df97b1922d52efb1cdcea84f/kod/PCCPU/pccpu_address_model.c), üretici ve toplayıcı görevlerinin bağımlılığını sınar. İç hesapta klasik C(n,j) katsayıları kullanılır. 60.353 kontrol bu mevcut programa aittir. CTMemTensor'ın merkez adres çözücüsü, seçilebilir adresleme kipleri veya RAM protokolü bu C programında henüz uygulanmamıştır.
 
-HTML rehberindeki sayısal gösterim, adres dönüşümlerini ve simetrik katsayı çiftlerini açıklayan bir tarayıcı hesabıdır. Gerçek bir thread zamanlayıcısı veya RAM gerçekleştirmesi değildir. [Test sonuçları](https://github.com/JamesAugustus/ctcpu-hunter), mevcut C testinin kapsamını belirtir.
+Yalnız yerel inceleme için hazırlanan sayısal gösterim, adres dönüşümlerini ve simetrik katsayı çiftlerini açıklayan bir tarayıcı hesabıdır. Gerçek bir thread zamanlayıcısı veya RAM gerçekleştirmesi değildir. [Test sonuçları](https://github.com/JamesAugustus/ctcpu-hunter/blob/e65df34d25093974df97b1922d52efb1cdcea84f/tr/md/CTCPU_PARCALAR/PCCPU/TEST_SONUCLARI.md), mevcut C testinin kapsamını belirtir.
 
 Açık kararlar adresleme kipinin seçimi, çift merkez durumunun gösterimi, yön bitinin kodlanması, işlem türleri, tam değer veya tarif saklama, önbellek geçerliliği, çekirdek sahipliği ve fiziksel bellek yerleşimidir. Bu belge bunları düşünülen sistemler olarak kayda geçirir. CTMemTensor çalışma adıdır. Yeni bir işlemci standardı, bitmiş donanım veya kanıtlanmış performans üstünlüğü iddiası yoktur.
 
 ### Kaynak ve ilgili belgeler
 
-[PCCPU](https://github.com/JamesAugustus/ctcpu-hunter), [C modeli açıklaması](https://github.com/JamesAugustus/ctcpu-hunter), [HTML rehberi](https://github.com/JamesAugustus/ctcpu-hunter), [English](https://github.com/JamesAugustus/ctcpu-hunter).
+[PCCPU](https://github.com/JamesAugustus/ctcpu-hunter/blob/e65df34d25093974df97b1922d52efb1cdcea84f/tr/md/CTCPU_PARCALAR/PCCPU/PCCPU.md), [C modeli açıklaması](https://github.com/JamesAugustus/ctcpu-hunter/blob/e65df34d25093974df97b1922d52efb1cdcea84f/tr/md/CTCPU_PARCALAR/PCCPU/PCCPU_C_TESTI_ACIKLAMA.md), [English](https://github.com/JamesAugustus/ctcpu-hunter/blob/e65df34d25093974df97b1922d52efb1cdcea84f/md/CTCPU_PARTS/CTMemTensor/CTMemTensor.md).
 
 Metin CC BY 4.0. Telif hakkı © 2026 James Augustus.
 
@@ -2410,7 +2410,7 @@ C kaynağı yeniden derlendi ve testler çalıştırıldı. **60.353 kontrol ge�
 90548514656103281165404177077484163874504589675413336841320
 ```
 
-[Ham çıktı](https://github.com/JamesAugustus/ctcpu-hunter), derleme mesajı, test özeti ve iki gösterimin çıktısını içerir. Kullanıcı adı, makine adı veya mutlak yerel dosya yolu içermez.
+[Ham çıktı](https://github.com/JamesAugustus/ctcpu-hunter/blob/e65df34d25093974df97b1922d52efb1cdcea84f/kod/PCCPU/TEST_OUTPUT.txt), derleme mesajı, test özeti ve iki gösterimin çıktısını içerir. Kullanıcı adı, makine adı veya mutlak yerel dosya yolu içermez.
 
 ### Yeniden çalıştırma
 
@@ -2455,9 +2455,9 @@ Terminaldeki 121 × 121 ve 1331 × 121 çarpım cümleleri açıklama metnidir. 
 
 Simetrik thread kaydı, iki taraflı RAM alanı, taraf seçimi ve yazma sonrası geçersizleştirme henüz bu C programında uygulanmadı. Bu test sayısı onların doğrulandığı anlamına gelmez. C modeli N(p)'yi hesaplamaz. Fiziksel PCCPU, gerçek eşzamanlı yürütme, saat çevrimi, hız, enerji ve toplam bellek kazancı ölçülmedi.
 
-Kodun mevcut yürütme modeli [sade açıklamada](https://github.com/JamesAugustus/ctcpu-hunter), önerilen mimari genişletme ise [PCCPU belgesinde](https://github.com/JamesAugustus/ctcpu-hunter) anlatılır.
+Kodun mevcut yürütme modeli [sade açıklamada](https://github.com/JamesAugustus/ctcpu-hunter/blob/e65df34d25093974df97b1922d52efb1cdcea84f/tr/md/CTCPU_PARCALAR/PCCPU/PCCPU_C_TESTI_ACIKLAMA.md), önerilen mimari genişletme ise [PCCPU belgesinde](https://github.com/JamesAugustus/ctcpu-hunter/blob/e65df34d25093974df97b1922d52efb1cdcea84f/tr/md/CTCPU_PARCALAR/PCCPU/PCCPU.md) anlatılır.
 
-Adresleme notu: Buradaki C(n,j), test programının klasik binom notasyonudur. CTMemTensor merkez gösteriminde aynı orta katsayı N(9,0) = 126 olur. Adresleme seçenekleri [ayrı belgede](https://github.com/JamesAugustus/ctcpu-hunter) tanımlanır.
+Adresleme notu: Buradaki C(n,j), test programının klasik binom notasyonudur. CTMemTensor merkez gösteriminde aynı orta katsayı N(9,0) = 126 olur. Adresleme seçenekleri [ayrı belgede](https://github.com/JamesAugustus/ctcpu-hunter/blob/e65df34d25093974df97b1922d52efb1cdcea84f/tr/md/CTCPU_PARCALAR/CTMemTensor/CTMemTensor.md) tanımlanır.
 
 ### CTMemTensor sayısal gösterimi
 

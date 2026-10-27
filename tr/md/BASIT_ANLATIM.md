@@ -24,7 +24,7 @@ Bir insan 10 çarpı 9'u dokuz tane on toplayarak yapmaz, 90 der. 21 çarpı 36'
 
 ## Gölgeyi kim çıkarıyor
 
-Resolver denen parça bir sayıyı gölgesine çevirir. Bunu bölme olmadan, dişli ve kadranlarla anlatıyorum. Yedi küçük asalın (2, 3, 5, 7, 11, 13 ve 17) her biri için bir kadran, sayının sekizlik hanelerini soldan sağa okur ve o asalın kaç kere geçtiğini sayar. Bu asalların hiçbirine bölünmeyen artığa rough diyorum ve olduğu gibi saklıyorum. Ayrıntısı [Çark modeli](md/CTCPU_PARCALAR/Resolver/Cark.md) belgesinde.
+Resolver denen parça bir sayıyı gölgesine çevirir. Bunu bölme olmadan, dişli ve kadranlarla anlatıyorum. Yedi küçük asalın (2, 3, 5, 7, 11, 13 ve 17) her biri için bir kadran, sayının sekizlik hanelerini soldan sağa okur ve o asalın kaç kere geçtiğini sayar. Bu asalların hiçbirine bölünmeyen artığa rough diyorum ve olduğu gibi saklıyorum. Ayrıntısı [Çark modeli](CTCPU_PARCALAR/Resolver/Cark.md) belgesinde.
 
 ## Ne olduğu, ne olmadığı
 
@@ -36,8 +36,8 @@ Bu benim hobim ve hayatım. Bilim insanı kültürüyle büyüdüm ve okudum. La
 
 ## Takıldığım yerler
 
-Takıldığım sorular var, geliştirilmesini istediğim yerler var. İnsanlar kendileri geliştirsin isterim, önerilere açığım. Açık sorularım [Nihai Form](md/NIHAI_FORM/CTCPU_NIHAI.md)'un 16. bölümünde.
+Takıldığım sorular var, geliştirilmesini istediğim yerler var. İnsanlar kendileri geliştirsin isterim, önerilere açığım. Açık sorularım [Nihai Form](NIHAI_FORM/CTCPU_NIHAI.md)'un 16. bölümünde.
 
 ## Sonra nereye
 
-Merak edersen önce [Çark modeli](md/CTCPU_PARCALAR/Resolver/Cark.md)ni, sonra [Nihai Form](md/NIHAI_FORM/CTCPU_NIHAI.md)'u, sonra [günlüğü](md/YOL.md) oku.
+Merak edersen önce [Çark modeli](CTCPU_PARCALAR/Resolver/Cark.md)ni, sonra [Nihai Form](NIHAI_FORM/CTCPU_NIHAI.md)'u, sonra [günlüğü](YOL.md) oku.

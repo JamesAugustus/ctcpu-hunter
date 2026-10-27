@@ -1,12 +1,12 @@
-# CTCPU and Hunter
+# CTCPU-Hunter
 
 > **No silicon exists.** MHz and watt figures, and hardware cycle estimates, are model values. Selected archived emulator sources were rerun for this package. Earlier emulator measurements remain historical records. The runnable code includes 30 archived tests and two verification programs under `TESTLER/NIHAI_EK/`.
 
 CTCPU is a processor idea I have been working on, which later became Hunter. I started from colour. Its smallest unit is three bits, shown as one of eight colours, and a number can also be kept in a second "shadow" form made of prime exponents. The machine tries to calculate the way a person does: it factors, keeps the symbol, and opens it only at the end. There is no chip and no measured speed or energy result. This is a record of work in progress, not a finished processor.
 
-## Consolidated technical study
+## Technical text
 
-The Hunter text, PCCPU task model and CTMemTensor memory options are collected in a [Turkish PDF](yayin/CTCPU_HUNTER_BIRLESIK_TR.pdf), with [Markdown](yayin/CTCPU_HUNTER_BIRLESIK_TR.md). The separate English documents remain available below.
+[Main text](md/CTCPU_HUNTER.md) and [PDF](pdf/CTCPU_HUNTER.pdf).
 
 James Augustus. [ORCID: 0009-0002-7286-7730](https://orcid.org/0009-0002-7286-7730).
 
@@ -14,7 +14,7 @@ James Augustus. [ORCID: 0009-0002-7286-7730](https://orcid.org/0009-0002-7286-77
 
 | Document | What it covers |
 |---|---|
-| [In simple words](pdf/IN_SIMPLE_WORDS.pdf) ([Markdown](IN_SIMPLE_WORDS.md)) | The whole idea on one page, in plain words |
+| [In simple words](pdf/IN_SIMPLE_WORDS.pdf) ([Markdown](md/IN_SIMPLE_WORDS.md)) | The whole idea on one page, in plain words |
 | [Final Form](pdf/FINAL_FORM/CTCPU_FINAL_FORM.pdf) ([Markdown](md/FINAL_FORM/CTCPU_FINAL_FORM.md)) | The whole machine in one document: cell, colour gates, register, Resolver, multiplication, division, square root, types, core and verification |
 | [CTCPU](md/CTCPU.md) | Short overview of the machine |
 | [CTCPU parts](md/CTCPU_PARTS/README.md) | A separate document for each part |

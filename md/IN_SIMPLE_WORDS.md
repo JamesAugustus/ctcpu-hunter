@@ -24,11 +24,11 @@ A person does not do 10 times 9 by adding nine tens, they say 90. They turn 21 Ã
 
 ## Who finds the shadow
 
-A part called Resolver turns a number into its shadow. I explain it with gears and dials, with no division. For each of the seven small primes (2, 3, 5, 7, 11, 13 and 17) there is a dial that reads the octal digits from left to right and counts how many times its prime appears. What is left over, which none of these primes divide, I call rough, and I keep it as it is. The details are in the [Gear model](md/CTCPU_PARTS/Resolver/Gear.md).
+A part called Resolver turns a number into its shadow. I explain it with gears and dials, with no division. For each of the seven small primes (2, 3, 5, 7, 11, 13 and 17) there is a dial that reads the octal digits from left to right and counts how many times its prime appears. What is left over, which none of these primes divide, I call rough, and I keep it as it is. The details are in the [Gear model](CTCPU_PARTS/Resolver/Gear.md).
 
 ## What it is and what it is not
 
-There is no silicon. I do not claim any gain in speed or energy. What I have is the idea, working models, 32 test packages and the record of the claims that did not hold. Four of my ideas were tested and failed, and I left them in [the journal](md/THE_ROAD_SO_FAR.md).
+There is no silicon. I do not claim any gain in speed or energy. What I have is the idea, working models, 32 test packages and the record of the claims that did not hold. Four of my ideas were tested and failed, and I left them in [the journal](THE_ROAD_SO_FAR.md).
 
 ## Why I am doing this
 
@@ -36,8 +36,8 @@ This is my hobby and my life. I grew up and studied in the culture of a scientis
 
 ## Where I am stuck
 
-I have questions I am stuck on and places I want to see developed. I would like people to develop them themselves, and I am open to suggestions. My open questions are in section 16 of the [Final Form](md/FINAL_FORM/CTCPU_FINAL_FORM.md).
+I have questions I am stuck on and places I want to see developed. I would like people to develop them themselves, and I am open to suggestions. My open questions are in section 16 of the [Final Form](FINAL_FORM/CTCPU_FINAL_FORM.md).
 
 ## Where to go next
 
-If you are curious, read the [Gear model](md/CTCPU_PARTS/Resolver/Gear.md) first, then the [Final Form](md/FINAL_FORM/CTCPU_FINAL_FORM.md), then [the journal](md/THE_ROAD_SO_FAR.md).
+If you are curious, read the [Gear model](CTCPU_PARTS/Resolver/Gear.md) first, then the [Final Form](FINAL_FORM/CTCPU_FINAL_FORM.md), then [the journal](THE_ROAD_SO_FAR.md).
